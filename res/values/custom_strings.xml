@@ -310,4 +310,7 @@
     <string name="fp_swipe_to_dismiss_notifications_title">Swipe fingerprint to dismiss notifications</string>
     <string name="fp_swipe_to_dismiss_notifications_summary">To dismiss your notifications, swipe left or right on the fingerprint sensor.</string>
 
+    <!-- Hostname setting -->
+    <string name="device_hostname">Device hostname</string>
+
 </resources>
