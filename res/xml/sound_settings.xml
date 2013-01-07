@@ -108,6 +108,14 @@
         settings:controller="com.android.settings.notification.VibrateWhenRingPreferenceController"
         android:order="-130"/>
 
+    <!-- Headset -->
+    <com.benzo.settings.preference.SystemSettingSwitchPreference
+        android:key="headset_connect_player"
+        android:title="@string/headset_connect_player_title"
+        android:summary="@string/headset_connect_player_summary"
+        android:defaultValue="false"
+        android:order="-129"/>
+
     <!-- Phone ringtone -->
     <com.android.settings.DefaultRingtonePreference
         android:key="ringtone"
