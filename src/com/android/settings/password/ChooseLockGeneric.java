@@ -31,6 +31,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.UserInfo;
+import android.content.res.Resources;
 import android.hardware.fingerprint.Fingerprint;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.FingerprintManager.RemovalCallback;
@@ -42,14 +43,20 @@ import android.security.KeyStore;
 import android.support.annotation.StringRes;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.EventLog;
 import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.utils.SettingsDividerItemDecoration;
 import com.android.settings.EncryptionInterstitial;
 import com.android.settings.EventLogTags;
 import com.android.settings.R;
@@ -62,6 +69,7 @@ import com.android.settings.fingerprint.FingerprintEnrollFindSensor;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.RestrictedPreference;
+import com.android.setupwizardlib.GlifPreferenceLayout;
 
 import java.util.List;
 
@@ -85,6 +93,13 @@ public class ChooseLockGeneric extends SettingsActivity {
     protected boolean isValidFragment(String fragmentName) {
         if (ChooseLockGenericFragment.class.getName().equals(fragmentName)) return true;
         return false;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.content_parent);
+        layout.setFitsSystemWindows(false);
     }
 
     /* package */ Class<? extends Fragment> getFragmentClass() {
@@ -256,6 +271,32 @@ public class ChooseLockGeneric extends SettingsActivity {
                             .setText(R.string.fingerprint_unlock_title);
                 }
             }
+        }
+
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            if (mForFingerprint) {
+                GlifPreferenceLayout layout = (GlifPreferenceLayout) view;
+                layout.setDividerItemDecoration(new SettingsDividerItemDecoration(getContext()));
+
+                layout.setIcon(getContext().getDrawable(R.drawable.ic_lock));
+                layout.setHeaderText(getActivity().getTitle());
+
+                // Use the dividers in SetupWizardRecyclerLayout. Suppress the dividers in
+                // PreferenceFragment.
+                setDivider(null);
+            }
+        }
+
+        @Override
+        public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
+                Bundle savedInstanceState) {
+            if (mForFingerprint) {
+                GlifPreferenceLayout layout = (GlifPreferenceLayout) parent;
+                return layout.onCreateRecyclerView(inflater, parent, savedInstanceState);
+            }
+            return super.onCreateRecyclerView(inflater, parent, savedInstanceState);
         }
 
         @Override
@@ -446,9 +487,16 @@ public class ChooseLockGeneric extends SettingsActivity {
             if (mForFingerprint) {
                 setPreferenceTitle(ScreenLockType.PATTERN,
                         R.string.fingerprint_unlock_set_unlock_pattern);
-                setPreferenceTitle(ScreenLockType.PIN, R.string.fingerprint_unlock_set_unlock_pin);
+                setPreferenceIcon(ScreenLockType.PATTERN,
+                        R.drawable.ic_security_pattern);
+                setPreferenceTitle(ScreenLockType.PIN,
+                        R.string.fingerprint_unlock_set_unlock_pin);
+                setPreferenceIcon(ScreenLockType.PIN,
+                        R.drawable.ic_security_pin);
                 setPreferenceTitle(ScreenLockType.PASSWORD,
                         R.string.fingerprint_unlock_set_unlock_password);
+                setPreferenceIcon(ScreenLockType.PASSWORD,
+                        R.drawable.ic_security_pwd);
             }
 
             if (mManagedPasswordProvider.isSettingManagedPasswordSupported()) {
@@ -481,6 +529,13 @@ public class ChooseLockGeneric extends SettingsActivity {
             Preference preference = findPreference(lock.preferenceKey);
             if (preference != null) {
                 preference.setSummary(summary);
+            }
+        }
+
+        private void setPreferenceIcon(ScreenLockType lock, @StringRes int icon) {
+            Preference preference = findPreference(lock.preferenceKey);
+            if (preference != null) {
+                preference.setIcon(icon);
             }
         }
 
