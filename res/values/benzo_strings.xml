@@ -34,4 +34,8 @@
     <string name="platform_revision">Platform</string>
     <string name="total_ram">Total RAM</string>
 
+    <!-- Scramble pin -->
+    <string name="unlock_scramble_pin_layout_title">Scramble numbers</string>
+    <string name="unlock_scramble_pin_layout_summary">Scramble PIN layout when unlocking device</string>
+
 </resources>
