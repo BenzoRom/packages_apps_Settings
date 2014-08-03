@@ -28,6 +28,11 @@
             android:summary="@string/unlock_set_unlock_mode_pin"
             settings:keywords="@string/keywords_lockscreen" />
 
+        <com.android.settings.preference.SystemSettingSwitchPreference
+            android:key="lockscreen_scramble_pin_layout"
+            android:title="@string/unlock_scramble_pin_layout_title"
+            android:summary="@string/unlock_scramble_pin_layout_summary" />
+
         <Preference android:key="lockscreen_preferences"
             android:title="@string/lockscreen_settings_title"
             android:fragment="com.android.settings.security.LockscreenDashboardFragment"/>

@@ -140,4 +140,8 @@
     <string name="app_ops_reset_confirm_title">Confirm counters reset</string>
     <string name="app_ops_reset_confirm_mesg">Are you sure you wish to reset counters?</string>
 
+    <!-- Scramble pin -->
+    <string name="unlock_scramble_pin_layout_title">Scramble layout</string>
+    <string name="unlock_scramble_pin_layout_summary">Scramble PIN layout when unlocking device</string>
+
 </resources>
