@@ -3327,7 +3327,19 @@
         </activity>
         <!-- Hide Apps from Recents (HAFR) -->
         <activity android:name="com.benzo.settings.hideappfromrecents.HAFRAppListActivity" />
-
+        <!-- Gesture Anywhere -->
+        <activity android:name="com.benzo.settings.gestureanywhere.GestureAnywhereBuilderActivity"
+                  android:parentActivityName="com.benzo.settings.gestureanywhere.GestureAnywhereSettings"
+                  android:exported="true">
+        </activity>
+        <activity
+            android:name="com.benzo.settings.gestureanywhere.GestureAnywhereCreateGestureActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter> 
+        </activity>
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
 </manifest>
