@@ -313,4 +313,8 @@
     <string name="less_notification_sounds_2m">Every 2 minutes</string>
     <string name="less_notification_sounds_5m">Every 5 minutes</string>
 
+    <!-- Chamber of Secrets -->
+    <string name="chamber_title">Chamber of secrets</string>
+    <string name="chamber_toast">The chamber of secrets has opened</string>
+
 </resources>

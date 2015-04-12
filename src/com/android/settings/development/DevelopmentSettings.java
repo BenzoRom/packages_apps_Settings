@@ -258,6 +258,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private static final int[] MOCK_LOCATION_APP_OPS = new int[]{AppOpsManager.OP_MOCK_LOCATION};
 
+    private static final String KEY_CHAMBER_OF_SECRETS = "chamber_of_secrets";
+    private static final String KEY_CHAMBER_OF_UNLOCKED_SECRETS = "chamber_of_unlocked_secrets";
+
     private IWindowManager mWindowManager;
     private IBackupManager mBackupManager;
     private IWebViewUpdateService mWebViewUpdateService;
@@ -351,6 +354,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private SwitchPreference mColorTemperaturePreference;
 
     private ListPreference mMSOB;
+
+    private Preference mChamber;
+    private SwitchPreference mChamberUnlocked;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<>();
 
@@ -601,6 +607,22 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             Settings.Secure.putInt(getContext().getContentResolver(), Settings.Secure.BUGREPORT_IN_POWER_MENU, 0);
         }
 
+        mChamber = (Preference) findPreference(KEY_CHAMBER_OF_SECRETS);
+        mAllPrefs.add(mChamber);
+        mChamberUnlocked = findAndInitSwitchPref(KEY_CHAMBER_OF_UNLOCKED_SECRETS);
+        mChamberUnlocked.setOnPreferenceChangeListener(this);
+
+        boolean chamberOpened = Settings.Secure.getInt(
+                getActivity().getContentResolver(),
+                Settings.Secure.CHAMBER_OF_SECRETS, 0) == 1;
+        mChamberUnlocked.setChecked(chamberOpened);
+
+        if (chamberOpened) {
+            removePreference(mChamber);
+        } else {
+            removePreference(mChamberUnlocked);
+        }
+
         final ContentResolver cr = getActivity().getContentResolver();
 
         addDashboardCategoryPreferences();
@@ -672,6 +694,12 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         getPreferenceScreen().removePreference(preference);
         mAllPrefs.remove(preference);
         mResetSwitchPrefs.remove(preference);
+    }
+
+    private void addPreference(Preference preference) {
+        getPreferenceScreen().addPreference(preference);
+        preference.setOnPreferenceChangeListener(this);
+        mAllPrefs.add(preference);
     }
 
     private void setPrefsEnabledState(boolean enabled) {
@@ -2596,6 +2624,18 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             writeBluetoothEnableInbandRingingOptions();
         } else if (SHORTCUT_MANAGER_RESET_KEY.equals(preference.getKey())) {
             resetShortcutManagerThrottling();
+        } else if (preference == mChamber) {
+            if (Settings.Secure.getInt(getActivity().getContentResolver(),
+                    Settings.Secure.CHAMBER_OF_SECRETS, 0) == 0) {
+                Settings.Secure.putInt(getActivity().getContentResolver(),
+                        Settings.Secure.CHAMBER_OF_SECRETS, 1);
+                Toast.makeText(getActivity(),
+                        R.string.chamber_toast,
+                        Toast.LENGTH_LONG).show();
+                getPreferenceScreen().removePreference(mChamber);
+                addPreference(mChamberUnlocked);
+                mChamberUnlocked.setChecked(true);
+            }
         } else {
             return super.onPreferenceTreeClick(preference);
         }
@@ -2666,6 +2706,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             return true;
         } else if (preference == mMSOB) {
             writeMSOBOptions(newValue);
+            return true;
+        } else if (preference == mChamberUnlocked) {
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.CHAMBER_OF_SECRETS,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         }
         return false;
