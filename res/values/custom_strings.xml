@@ -208,4 +208,9 @@
     <string name="ambient_display_show_battery_percent">Percent</string>
     <string name="ambient_display_show_battery_percent_summary">Show battery percent during pulse</string>
 
+    <!-- Changelog -->
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_summary">See some of the recent commits.</string>
+    <string name="changelog_error">Unable to load changelog</string>
+
 </resources>
