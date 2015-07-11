@@ -150,6 +150,7 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.benzo.settings.BenzoSettings;
 import com.benzo.settings.GlobalActionsSettings;
+import com.benzo.settings.VolumeStepsFragment;
 
 public class SettingsGateway {
 
@@ -288,7 +289,8 @@ public class SettingsGateway {
             GlobalActionsPanelSettings.class.getName(),
             DarkModeSettingsFragment.class.getName(),
             BenzoSettings.class.getName(),
-            GlobalActionsSettings.class.getName()
+            GlobalActionsSettings.class.getName(),
+            VolumeStepsFragment.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -329,5 +331,6 @@ public class SettingsGateway {
             UserBackupSettingsActivity.class.getName(),
             Settings.BenzoSettingsActivity.class.getName(),
             Settings.GlobalActionsSettingsActivity.class.getName(),
+            Settings.VolumeStepsFragmentActivity.class.getName(),
     };
 }
