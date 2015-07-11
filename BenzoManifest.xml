@@ -81,5 +81,21 @@
                 android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.benzo.settings.GlobalActionsSettings" />
         </activity>
+
+        <!-- Volume Steps -->
+        <activity
+            android:name="Settings$VolumeStepsFragmentActivity"
+            android:label="@string/benzo_extras_volumesteps_title"
+            android:taskAffinity="com.android.settings"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.VolumeStepsFragment" />
+        </activity>
+
     </application>
 </manifest>
