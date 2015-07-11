@@ -21,6 +21,7 @@
     <string name="benzo_dashboard_summary">Most extra features added into Benzo</string>
     <string name="benzo_extras_quicksettings_title">Quick Settings</string>
     <string name="benzo_extras_buttons_title">Buttons</string>
+    <string name="benzo_extras_volumesteps_title">Volume Steps</string>
 
      <!-- Benzo version -->
     <string name="benzo_version">Benzo version</string>

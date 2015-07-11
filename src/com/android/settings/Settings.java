@@ -246,4 +246,5 @@ public class Settings extends SettingsActivity {
     public static class BenzoSettingsActivity extends SettingsActivity { /* empty */ }
     public static class QuickSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ButtonSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class VolumeStepsFragmentActivity extends SettingsActivity { /* empty */ }
 }
