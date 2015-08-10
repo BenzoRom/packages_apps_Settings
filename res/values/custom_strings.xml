@@ -185,4 +185,8 @@
     <string name="show_light_on_zen_title">Blink during Do Not Disturb</string>
     <string name="unit_sec">seconds</string>
 
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Three finger gesture</string>
+    <string name="three_finger_gesture_summary">Swipe three finger to screenshot</string>
+
 </resources>
