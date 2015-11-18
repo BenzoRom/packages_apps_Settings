@@ -318,4 +318,7 @@
     <string name="chamber_title">Chamber of secrets</string>
     <string name="chamber_toast">The chamber of secrets has opened</string>
 
+    <!-- Unlink notif volume -->
+    <string name="link_volume_option_title">Link ring and notification volume</string>
+
 </resources>
