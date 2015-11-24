@@ -300,4 +300,9 @@
     <string name="incall_notifications_vibrate">Vibrate in-call notifications</string>
     <string name="incall_notifications_vibrate_summary">Vibrate instead of playing a sound for in-call notifications</string>
 
+    <!-- Battery stats reset -->
+    <string name="battery_stats_reset">Reset stats</string>
+    <string name="battery_stats_message">Battery history stats are going to be reset</string>
+    <string name="ok_string">Ok</string>
+
 </resources>
