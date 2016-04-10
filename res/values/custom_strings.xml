@@ -201,4 +201,11 @@
     <string name="display_rotation_180_title">180 degrees</string>
     <string name="display_rotation_270_title">270 degrees</string>
 
+    <!-- Doze battery options -->
+    <string name="ambient_display_show_battery_cat">Battery Status</string>
+    <string name="ambient_display_show_battery_icon">Enable</string>
+    <string name="ambient_display_show_battery_icon_summary">Show battery indicator during pulse</string>
+    <string name="ambient_display_show_battery_percent">Percent</string>
+    <string name="ambient_display_show_battery_percent_summary">Show battery percent during pulse</string>
+
 </resources>
