@@ -60,4 +60,7 @@
     <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
     <string name="keywords_proximity_wake">accidental, proximity, wake, wake-up</string>
 
+    <!-- App details: open play store link -->
+    <string name="app_play_store">Google Play</string>
+
 </resources>
