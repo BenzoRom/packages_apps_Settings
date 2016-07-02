@@ -51,6 +51,7 @@ import com.android.settings.applications.specialaccess.pictureinpicture.PictureI
 import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settingslib.RestrictedLockUtilsInternal;
+import com.android.settingslib.Utils;
 import com.android.settingslib.applications.AppUtils;
 import com.android.settingslib.applications.ApplicationsState;
 import com.android.settingslib.applications.ApplicationsState.AppEntry;
@@ -82,6 +83,7 @@ public class AppInfoDashboardFragment extends DashboardFragment
     @VisibleForTesting
     static final int UNINSTALL_UPDATES = 2;
     static final int INSTALL_INSTANT_APP_MENU = 3;
+    static final int OPEN_PLAY_STORE = 4;
 
     // Result code identifiers
     @VisibleForTesting
@@ -378,6 +380,9 @@ public class AppInfoDashboardFragment extends DashboardFragment
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         menu.add(0, UNINSTALL_ALL_USERS_MENU, 1, R.string.uninstall_all_users_text)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        menu.add(0, OPEN_PLAY_STORE, 0, R.string.app_play_store)
+                .setIcon(R.drawable.ic_play_store)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     @Override
@@ -399,6 +404,11 @@ public class AppInfoDashboardFragment extends DashboardFragment
             RestrictedLockUtilsInternal.setMenuItemAsDisabledByAdmin(getActivity(),
                     uninstallUpdatesItem, mAppsControlDisallowedAdmin);
         }
+        // Utils.isSystemPackage doesn't include all aosp built apps, like Contacts etc. Add them
+        // and grab the Google Play Store itself (com.android.vending) in the process
+        menu.findItem(OPEN_PLAY_STORE).setVisible(
+                !Utils.isSystemPackage(getContext().getResources(), mPm, mPackageInfo)
+                && !isAospOrStore(mAppEntry.info.packageName));
     }
 
     @Override
@@ -409,6 +419,9 @@ public class AppInfoDashboardFragment extends DashboardFragment
                 return true;
             case UNINSTALL_UPDATES:
                 uninstallPkg(mAppEntry.info.packageName, false, false);
+                return true;
+            case OPEN_PLAY_STORE:
+                openPlayStore(mAppEntry.info.packageName);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -502,6 +515,17 @@ public class AppInfoDashboardFragment extends DashboardFragment
         }
 
         return true;
+    }
+
+    private void openPlayStore(String packageName) {
+        String playURL = "https://play.google.com/store/apps/details?id=" + packageName;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(playURL));
+        startActivity(i);
+    }
+
+    private boolean isAospOrStore(String packageName) {
+        return packageName.contains("com.android");
     }
 
     private void uninstallPkg(String packageName, boolean allUsers, boolean andDisable) {
