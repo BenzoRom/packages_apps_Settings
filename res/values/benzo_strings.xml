@@ -30,4 +30,7 @@
     <string name="platform_revision">Platform</string>
     <string name="total_ram">Total RAM</string>
 
+    <!-- App details: open play store link -->
+    <string name="app_play_store">Google Play</string>
+
 </resources>
