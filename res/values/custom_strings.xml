@@ -206,6 +206,8 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_summary">See some of the recent commits.</string>
     <string name="changelog_error">Unable to load changelog</string>
+    <!-- Phone info shortcut -->
+    <string name="device_info_title">Phone info</string>
 
     <!-- Advanced settings (former: Developer options) -->
     <string name="dev_advanced_settings_title">@string/advanced_section_header</string>
