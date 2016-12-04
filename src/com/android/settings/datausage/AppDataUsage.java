@@ -15,6 +15,8 @@
 package com.android.settings.datausage;
 
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_DATA;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_WLAN;
 
 import android.app.Activity;
 import android.app.LoaderManager;
@@ -56,9 +58,6 @@ import com.android.settingslib.net.ChartDataLoader;
 import com.android.settingslib.net.UidDetail;
 import com.android.settingslib.net.UidDetailProvider;
 
-import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_DATA;
-import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_WIFI;
-
 public class AppDataUsage extends DataUsageBase implements Preference.OnPreferenceChangeListener,
         DataSaverBackend.Listener {
 
@@ -72,11 +71,11 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
     private static final String KEY_BACKGROUND_USAGE = "background_usage";
     private static final String KEY_APP_SETTINGS = "app_settings";
     private static final String KEY_RESTRICT_BACKGROUND = "restrict_background";
+    private static final String KEY_RESTRICT_DATA = "restrict_data";
+    private static final String KEY_RESTRICT_WLAN = "restrict_wlan";
     private static final String KEY_APP_LIST = "app_list";
     private static final String KEY_CYCLE = "cycle";
     private static final String KEY_UNRESTRICTED_DATA = "unrestricted_data_saver";
-    private static final String KEY_RESTRICT_ALL_DATA = "restrict_all_data";
-    private static final String KEY_RESTRICT_ALL_WIFI = "restrict_all_wifi";
 
     private static final int LOADER_CHART_DATA = 2;
     private static final int LOADER_APP_PREF = 3;
@@ -88,8 +87,8 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
     private Preference mBackgroundUsage;
     private Preference mAppSettings;
     private SwitchPreference mRestrictBackground;
-    private SwitchPreference mRestrictAllData;
-    private SwitchPreference mRestrictAllWifi;
+    private SwitchPreference mRestrictData;
+    private SwitchPreference mRestrictWlan;
     private PreferenceCategory mAppList;
 
     private Drawable mIcon;
@@ -122,11 +121,10 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
             throw new RuntimeException(e);
         }
 
+        mPolicyManager = NetworkPolicyManager.from(getContext());
         mAppItem = (args != null) ? (AppItem) args.getParcelable(ARG_APP_ITEM) : null;
         mTemplate = (args != null) ? (NetworkTemplate) args.getParcelable(ARG_NETWORK_TEMPLATE)
                 : null;
-        mPolicyManager = NetworkPolicyManager.from(getActivity());
-
         if (mTemplate == null) {
             Context context = getContext();
             mTemplate = DataUsageUtils.getDefaultTemplate(context,
@@ -171,17 +169,17 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
             if (!UserHandle.isApp(mAppItem.key)) {
                 removePreference(KEY_UNRESTRICTED_DATA);
                 removePreference(KEY_RESTRICT_BACKGROUND);
-                removePreference(KEY_RESTRICT_ALL_DATA);
-                removePreference(KEY_RESTRICT_ALL_WIFI);
+                removePreference(KEY_RESTRICT_DATA);
+                removePreference(KEY_RESTRICT_WLAN);
             } else {
                 mRestrictBackground = (SwitchPreference) findPreference(KEY_RESTRICT_BACKGROUND);
                 mRestrictBackground.setOnPreferenceChangeListener(this);
+                mRestrictData = (SwitchPreference) findPreference(KEY_RESTRICT_DATA);
+                mRestrictData.setOnPreferenceChangeListener(this);
+                mRestrictWlan = (SwitchPreference) findPreference(KEY_RESTRICT_WLAN);
+                mRestrictWlan.setOnPreferenceChangeListener(this);
                 mUnrestrictedData = (SwitchPreference) findPreference(KEY_UNRESTRICTED_DATA);
                 mUnrestrictedData.setOnPreferenceChangeListener(this);
-                mRestrictAllData = (SwitchPreference) findPreference(KEY_RESTRICT_ALL_DATA);
-                mRestrictAllData.setOnPreferenceChangeListener(this);
-                mRestrictAllWifi = (SwitchPreference) findPreference(KEY_RESTRICT_ALL_WIFI);
-                mRestrictAllWifi.setOnPreferenceChangeListener(this);
             }
             mDataSaverBackend = new DataSaverBackend(getContext());
             mAppSettings = findPreference(KEY_APP_SETTINGS);
@@ -219,9 +217,9 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
             removePreference(KEY_UNRESTRICTED_DATA);
             removePreference(KEY_APP_SETTINGS);
             removePreference(KEY_RESTRICT_BACKGROUND);
+            removePreference(KEY_RESTRICT_DATA);
+            removePreference(KEY_RESTRICT_WLAN);
             removePreference(KEY_APP_LIST);
-            removePreference(KEY_RESTRICT_ALL_DATA);
-            removePreference(KEY_RESTRICT_ALL_WIFI);
         }
     }
 
@@ -257,14 +255,16 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
             mDataSaverBackend.setIsBlacklisted(mAppItem.key, mPackageName, !(Boolean) newValue);
             updatePrefs();
             return true;
+        } else if (preference == mRestrictData) {
+            setAppRestrictData(!(Boolean) newValue);
+            updatePrefs();
+            return true;
+        } else if (preference == mRestrictWlan) {
+            setAppRestrictWlan(!(Boolean) newValue);
+            updatePrefs();
+            return true;
         } else if (preference == mUnrestrictedData) {
             mDataSaverBackend.setIsWhitelisted(mAppItem.key, mPackageName, (Boolean) newValue);
-            return true;
-        } else if (preference == mRestrictAllData) {
-            setAppRestrictAllData((Boolean) newValue);
-            return true;
-        } else if (preference == mRestrictAllWifi) {
-            setAppRestrictAllWifi((Boolean) newValue);
             return true;
         }
         return false;
@@ -284,13 +284,13 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
     @VisibleForTesting
     void updatePrefs() {
         updatePrefs(getAppRestrictBackground(), getUnrestrictData(),
-                getAppRestrictAllData(), getAppRestrictAllWifi());
+                getAppRestrictData(), getAppRestrictWlan());
     }
 
     private void updatePrefs(boolean restrictBackground, boolean unrestrictData,
-            boolean restrictAllData, boolean restrictAllWifi) {
+            boolean restrictData, boolean restrictWlan) {
         if (mRestrictBackground != null) {
-            if (restrictAllData) {
+            if (restrictData) {
                 mRestrictBackground.setEnabled(false);
                 mRestrictBackground.setChecked(false);
             } else {
@@ -298,21 +298,20 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
                 mRestrictBackground.setChecked(!restrictBackground);
             }
         }
+        if (mRestrictData != null) {
+            mRestrictData.setChecked(!restrictData);
+        }
+        if (mRestrictWlan != null) {
+            mRestrictWlan.setChecked(!restrictWlan);
+        }
         if (mUnrestrictedData != null) {
-            if (restrictAllData || restrictBackground) {
+            if (restrictData || restrictBackground) {
                 mUnrestrictedData.setEnabled(false);
                 mUnrestrictedData.setChecked(false);
             } else {
                 mUnrestrictedData.setEnabled(true);
                 mUnrestrictedData.setChecked(unrestrictData);
             }
-        }
-
-        if (mRestrictAllData != null) {
-            mRestrictAllData.setChecked(restrictAllData);
-        }
-        if (mRestrictAllWifi != null) {
-            mRestrictAllWifi.setChecked(restrictAllWifi);
         }
     }
 
@@ -348,9 +347,15 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
     }
 
     private boolean getAppRestrictBackground() {
-        final int uid = mAppItem.key;
-        final int uidPolicy = services.mPolicyManager.getUidPolicy(uid);
-        return (uidPolicy & POLICY_REJECT_METERED_BACKGROUND) != 0;
+        return getAppRestriction(POLICY_REJECT_METERED_BACKGROUND);
+    }
+
+    private boolean getAppRestrictData() {
+        return getAppRestriction(POLICY_REJECT_ON_DATA);
+    }
+
+    private boolean getAppRestrictWlan() {
+        return getAppRestriction(POLICY_REJECT_ON_WLAN);
     }
 
     private boolean getUnrestrictData() {
@@ -360,26 +365,18 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
         return false;
     }
 
-    private boolean getAppRestrictAllData() {
-        return getAppRestriction(POLICY_REJECT_ON_DATA);
-    }
-
-    private boolean getAppRestrictAllWifi() {
-        return getAppRestriction(POLICY_REJECT_ON_WIFI);
-    }
-
     private boolean getAppRestriction(int policy) {
         final int uid = mAppItem.key;
         final int uidPolicy = services.mPolicyManager.getUidPolicy(uid);
         return (uidPolicy & policy) != 0;
     }
 
-    private void setAppRestrictAllData(boolean restrict) {
+    private void setAppRestrictData(boolean restrict) {
         setAppRestriction(POLICY_REJECT_ON_DATA, restrict);
     }
 
-    private void setAppRestrictAllWifi(boolean restrict) {
-        setAppRestriction(POLICY_REJECT_ON_WIFI, restrict);
+    private void setAppRestrictWlan(boolean restrict) {
+        setAppRestriction(POLICY_REJECT_ON_WLAN, restrict);
     }
 
     private void setAppRestriction(int policy, boolean restrict) {
@@ -495,7 +492,7 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
     public void onWhitelistStatusChanged(int uid, boolean isWhitelisted) {
         if (mAppItem.uids.get(uid, false)) {
             updatePrefs(getAppRestrictBackground(), isWhitelisted,
-                getAppRestrictAllData(), getAppRestrictAllWifi());
+                    getAppRestrictData(), getAppRestrictWlan());
         }
     }
 
@@ -503,7 +500,7 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
     public void onBlacklistStatusChanged(int uid, boolean isBlacklisted) {
         if (mAppItem.uids.get(uid, false)) {
             updatePrefs(isBlacklisted, getUnrestrictData(),
-                getAppRestrictAllData(), getAppRestrictAllWifi());
+                    getAppRestrictData(), getAppRestrictWlan());
         }
     }
 }
