@@ -89,6 +89,7 @@ import com.android.settings.RestrictedSettingsFragment;
 import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 import com.android.settings.dashboard.DashboardFeatureProvider;
+import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.password.ChooseLockSettingsHelper;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -714,8 +715,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             // to debug settings being enabled, so the user knows there is
             // stuff enabled and can turn it all off if they want.
             mSettingsEnabler.enableDevelopmentSettings();
-            mSwitchBar.setChecked(true);
-            setPrefsEnabledState(true);
+            mSwitchBar.setChecked(lastEnabledState);
+            setPrefsEnabledState(lastEnabledState);
         }
         mSwitchBar.show();
 
@@ -2906,5 +2907,31 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         return mOemLockManager.isDeviceOemUnlocked();
     }
 
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
 
+        private final Context mContext;
+        private final SummaryLoader mSummaryLoader;
+
+        public SummaryProvider(Context context, SummaryLoader summaryLoader) {
+            mContext = context;
+            mSummaryLoader = summaryLoader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                mSummaryLoader.setSummary(this, mContext.getResources().
+                        getString(R.string.dev_advanced_settings_summary));
+            }
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 }

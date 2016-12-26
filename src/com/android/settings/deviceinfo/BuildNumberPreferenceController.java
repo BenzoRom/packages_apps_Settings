@@ -183,7 +183,7 @@ public class BuildNumberPreferenceController extends AbstractPreferenceControlle
             if (mDevHitToast != null) {
                 mDevHitToast.cancel();
             }
-            mDevHitToast = Toast.makeText(mContext, R.string.show_dev_already_enabled,
+            mDevHitToast = Toast.makeText(mContext, R.string.dev_advanced_already_enabled,
                     Toast.LENGTH_LONG);
             mDevHitToast.show();
             mMetricsFeatureProvider.action(

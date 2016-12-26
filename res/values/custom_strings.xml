@@ -22,9 +22,6 @@
     <string name="global_actions_title">Power menu</string>
     <string name="weather_title">Weather</string>
 
-    <!-- General -->
-    <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
-
     <!-- Benzo version -->
     <string name="benzo_version">Benzo version</string>
     <string name="benzo_version_default">Unknown</string>
@@ -212,5 +209,10 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_summary">See some of the recent commits.</string>
     <string name="changelog_error">Unable to load changelog</string>
+
+    <!-- Advanced settings (former: Developer options) -->
+    <string name="dev_advanced_settings_title">@string/advanced_section_header</string>
+    <string name="dev_advanced_settings_summary">For the experienced user</string>
+    <string name="dev_advanced_already_enabled">No need, advanced settings are enabled by default.</string>
 
 </resources>
