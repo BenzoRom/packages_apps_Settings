@@ -191,4 +191,5 @@ public class Settings extends SettingsActivity {
     public static class VolumeStepsFragmentActivity extends SettingsActivity { /* empty */ }
     public static class AnimationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
 }
