@@ -53,6 +53,7 @@ import com.android.settings.applications.PictureInPictureSettings;
 import com.android.settings.applications.ProcessStatsSummary;
 import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.applications.SpecialAccessSettings;
+import com.android.settings.applications.RunningServices;
 import com.android.settings.applications.UsageAccessDetails;
 import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.applications.WriteSettingsDetails;
@@ -261,7 +262,8 @@ public class SettingsGateway {
             BenzoSettings.class.getName(),
             GlobalActionsSettings.class.getName(),
             LockScreenWeatherSettings.class.getName(),
-            ChooseLockPatternSize.class.getName()
+            ChooseLockPatternSize.class.getName(),
+            RunningServices.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -300,5 +302,6 @@ public class SettingsGateway {
             Settings.DeviceInfoSettingsActivity.class.getName(),
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.BenzoSettingsActivity.class.getName(),
+            Settings.DevRunningServicesActivity.class.getName()
     };
 }
