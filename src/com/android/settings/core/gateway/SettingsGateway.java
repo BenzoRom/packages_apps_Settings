@@ -134,6 +134,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 
 import com.benzo.settings.BenzoSettings;
 import com.benzo.settings.GlobalActionsSettings;
+import com.benzo.settings.LockScreenWeatherSettings;
 
 public class SettingsGateway {
 
@@ -258,6 +259,7 @@ public class SettingsGateway {
             DataUsageList.class.getName(),
             BenzoSettings.class.getName(),
             GlobalActionsSettings.class.getName(),
+            LockScreenWeatherSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {

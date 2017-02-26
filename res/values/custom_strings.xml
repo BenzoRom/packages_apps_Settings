@@ -20,6 +20,7 @@
     <string name="benzo_settings_title">Benzo Extras</string>
     <string name="benzo_dashboard_summary">Most extra features added into Benzo.</string>
     <string name="global_actions_title">Power menu</string>
+    <string name="weather_title">Weather</string>
 
     <!-- General -->
     <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
