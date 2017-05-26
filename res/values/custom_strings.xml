@@ -163,4 +163,8 @@
     <string name="edge_gesture_service_title">Block gesture touch events</string>
     <string name="edge_gesture_service_summary">Don\'t send touch events for navigation and status bar gestures to apps</string>
 
+    <!-- QS quick pulldown using fpc -->
+    <string name="status_bar_quick_qs_pulldown_fp_title">Quick swipe using fingerprint</string>
+    <string name="status_bar_quick_qs_pulldown_fp_summary">Instead off gesturing down twice for notifications just enable this and one swipe will do</string>
+
 </resources>
