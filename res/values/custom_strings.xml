@@ -20,4 +20,8 @@
     <string name="benzo_settings_title">Benzo Extras</string>
     <string name="benzo_dashboard_summary">Most extra features added into Benzo.</string>
 
+     <!-- Benzo version -->
+    <string name="benzo_version">Benzo version</string>
+    <string name="benzo_version_default">Unknown</string>
+
 </resources>

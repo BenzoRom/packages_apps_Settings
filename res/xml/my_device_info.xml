@@ -166,4 +166,11 @@
         android:summary="@string/summary_placeholder"
         settings:allowDividerAbove="true"/>
 
+    <!-- Benzo version -->
+    <Preference
+        android:key="benzo_version"
+        android:order="44"
+        android:title="@string/benzo_version"
+        android:summary="@string/benzo_version_default" />
+
 </PreferenceScreen>
