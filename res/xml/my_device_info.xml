@@ -211,4 +211,12 @@
             settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
     </PreferenceCategory>
 
+    <!-- Benzo version -->
+    <Preference
+        android:key="benzo_version"
+        android:order="54"
+        android:title="@string/benzo_version"
+        android:summary="@string/benzo_version_default"
+        android:selectable="false"/>
+
 </PreferenceScreen>
