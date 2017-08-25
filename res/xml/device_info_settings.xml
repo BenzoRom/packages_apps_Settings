@@ -85,6 +85,12 @@
                 android:title="@string/fcc_equipment_id"
                 android:summary="@string/summary_placeholder"/>
 
+        <!-- Benzo version -->
+        <Preference
+		android:key="benzo_version"
+                android:title="@string/benzo_version"
+                android:summary="@string/benzo_version_default" />
+
         <!-- Device Baseband version -->
         <Preference
                 android:key="baseband_version"
