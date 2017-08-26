@@ -32,6 +32,7 @@ import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.deviceinfo.BenzoVersionPreferenceController;
 import com.android.settings.deviceinfo.BluetoothAddressPreferenceController;
 import com.android.settings.deviceinfo.BuildNumberPreferenceController;
+import com.android.settings.deviceinfo.ClangVersionPreferenceController;
 import com.android.settings.deviceinfo.DeviceNamePreferenceController;
 import com.android.settings.deviceinfo.FccEquipmentIdPreferenceController;
 import com.android.settings.deviceinfo.FeedbackPreferenceController;
@@ -119,6 +120,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
         controllers.add(new UptimePreferenceController(context, lifecycle));
         controllers.add(new BenzoVersionPreferenceController(context));
         controllers.add(new SELinuxStatusPreferenceController(context));
+        controllers.add(new ClangVersionPreferenceController(context));
         return controllers;
     }
 
