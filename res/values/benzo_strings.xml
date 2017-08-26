@@ -20,6 +20,9 @@
     <string name="benzo_version">Benzo version</string>
     <string name="benzo_version_default">Unknown</string>
 
+    <!-- Clang version -->
+    <string name="clang_version">Clang version</string>
+
     <!-- Manage applications, package string displayed in app snippet -->
     <string name="packagename_text"><xliff:g id="package_name">%1$s</xliff:g></string>
 
