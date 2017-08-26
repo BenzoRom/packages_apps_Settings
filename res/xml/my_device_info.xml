@@ -193,15 +193,14 @@
         android:title="@string/fcc_equipment_id"
         android:summary="@string/summary_placeholder"/>
 
-    <!-- Build number -->
+    <!-- Clang version -->
     <Preference
-        android:key="build_number"
+        android:key="clang_version"
         android:order="53"
-        android:title="@string/build_number"
-        android:summary="@string/summary_placeholder"
-        settings:allowDividerAbove="true"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
+        android:title="@string/clang_version"
+        android:summary="@string/clang_version_default"
+        android:selectable="false"
+        settings:allowDividerAbove="true"/>
 
     <!-- Benzo version -->
     <Preference
@@ -210,5 +209,14 @@
         android:title="@string/benzo_version"
         android:summary="@string/benzo_version_default"
         android:selectable="false"/>
+
+    <!-- Build number -->
+    <Preference
+        android:key="build_number"
+        android:order="55"
+        android:title="@string/build_number"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
 
 </PreferenceScreen>
