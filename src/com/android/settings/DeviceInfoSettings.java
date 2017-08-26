@@ -29,6 +29,7 @@ import com.android.settings.deviceinfo.AdditionalSystemUpdatePreferenceControlle
 import com.android.settings.deviceinfo.BasebandVersionPreferenceController;
 import com.android.settings.deviceinfo.BenzoVersionPreferenceController;
 import com.android.settings.deviceinfo.BuildNumberPreferenceController;
+import com.android.settings.deviceinfo.ClangVersionPreferenceController;
 import com.android.settings.deviceinfo.DeviceModelPreferenceController;
 import com.android.settings.deviceinfo.FccEquipmentIdPreferenceController;
 import com.android.settings.deviceinfo.FeedbackPreferenceController;
@@ -133,6 +134,7 @@ public class DeviceInfoSettings extends DashboardFragment implements Indexable {
         controllers.add(new SELinuxStatusPreferenceController(context));
         controllers.add(new SafetyInfoPreferenceController(context));
         controllers.add(new BenzoVersionPreferenceController(context));
+        controllers.add(new ClangVersionPreferenceController(context));
         return controllers;
     }
 

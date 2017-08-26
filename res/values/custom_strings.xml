@@ -24,6 +24,10 @@
     <string name="benzo_version">Benzo version</string>
     <string name="benzo_version_default">Unknown</string>
 
+    <!-- Clang version -->
+    <string name="clang_version">Clang</string>
+    <string name="clang_version_default">Unknown</string>
+
     <!-- Expanded desktop -->
     <string name="power_menu_expanded_desktop">Expanded desktop</string>
     <string name="expanded_hide_nothing">Hide nothing</string>
