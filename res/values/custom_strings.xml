@@ -24,6 +24,10 @@
     <string name="benzo_version">Benzo version</string>
     <string name="benzo_version_default">Unknown</string>
 
+    <!-- Clang version -->
+    <string name="clang_version">Clang</string>
+    <string name="clang_version_default">Unknown</string>
+
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
 

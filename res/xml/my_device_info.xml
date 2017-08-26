@@ -173,4 +173,11 @@
         android:title="@string/benzo_version"
         android:summary="@string/benzo_version_default" />
 
+    <!-- Clang version -->
+    <Preference
+        android:key="clang_version"
+        android:order="45"
+        android:title="@string/clang_version"
+        android:summary="@string/clang_version_default" />
+
 </PreferenceScreen>
