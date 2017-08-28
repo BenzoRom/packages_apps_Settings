@@ -445,4 +445,5 @@ public class Settings extends SettingsActivity {
     public static class BenzoSettingsActivity extends SettingsActivity {}
     public static class QuickSettingsActivity extends SettingsActivity {}
     public static class ButtonSettingsActivity extends SettingsActivity {}
+    public static class GlobalActionsSettingsActivity extends SettingsActivity {}
 }
