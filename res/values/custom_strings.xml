@@ -19,6 +19,7 @@
     <!-- Benzo Extras -->
     <string name="benzo_settings_title">Benzo Extras</string>
     <string name="benzo_dashboard_summary">Most extra features added into Benzo.</string>
+    <string name="global_actions_title">Power menu</string>
 
      <!-- Benzo version -->
     <string name="benzo_version">Benzo version</string>

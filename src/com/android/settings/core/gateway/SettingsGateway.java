@@ -139,6 +139,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.benzo.settings.BenzoSettings;
+import com.benzo.settings.GlobalActionsSettings;
 
 public class SettingsGateway {
 
@@ -266,6 +267,7 @@ public class SettingsGateway {
             ToggleBackupSettingFragment.class.getName(),
             PreviouslyConnectedDeviceDashboardFragment.class.getName(),
             BenzoSettings.class.getName(),
+            GlobalActionsSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
