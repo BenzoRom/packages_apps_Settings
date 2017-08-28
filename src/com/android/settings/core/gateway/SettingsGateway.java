@@ -149,6 +149,7 @@ import com.android.settings.wifi.savedaccesspoints.SavedAccessPointsWifiSettings
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.benzo.settings.BenzoSettings;
+import com.benzo.settings.GlobalActionsSettings;
 
 public class SettingsGateway {
 
@@ -286,7 +287,8 @@ public class SettingsGateway {
             MobileNetworkListFragment.class.getName(),
             GlobalActionsPanelSettings.class.getName(),
             DarkModeSettingsFragment.class.getName(),
-            BenzoSettings.class.getName()
+            BenzoSettings.class.getName(),
+            GlobalActionsSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -326,5 +328,6 @@ public class SettingsGateway {
             Settings.ModuleLicensesActivity.class.getName(),
             UserBackupSettingsActivity.class.getName(),
             Settings.BenzoSettingsActivity.class.getName(),
+            Settings.GlobalActionsSettingsActivity.class.getName(),
     };
 }
