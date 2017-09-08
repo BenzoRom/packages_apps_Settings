@@ -1,0 +1,2 @@
+# BenzoExtras: Keep all classes.
+-keep class com.benzorom.settings.** { *; }

@@ -23,8 +23,8 @@ java_library {
 genrule {
     name: "statslog-settings-java-gen",
     tools: ["stats-log-api-gen"],
-    cmd: "$(location stats-log-api-gen) --java $(out) --module settings"
-        + " --javaPackage com.android.settings.core.instrumentation --javaClass SettingsStatsLog",
+    cmd: "$(location stats-log-api-gen) --java $(out) --module settings" +
+        " --javaPackage com.android.settings.core.instrumentation --javaClass SettingsStatsLog",
     out: ["com/android/settings/core/instrumentation/SettingsStatsLog.java"],
 }
 
@@ -53,7 +53,17 @@ android_library {
         "SettingsLib-search-defaults",
     ],
 
-    srcs: ["src/**/*.java", "src/**/*.kt"],
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+        "BenzoSettings/src/**/*.java",
+        "BenzoSettings/src/**/*.kt",
+    ],
+
+    resource_dirs: [
+        "res",
+        "BenzoSettings/res",
+    ],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
@@ -89,6 +99,10 @@ android_library {
         "SettingsLibActivityEmbedding",
         "Settings-change-ids",
     ],
+    manifest: "AndroidManifest.xml",
+    additional_manifests: ["BenzoManifest.xml"],
+
+    aaptflags: ["--extra-packages com.benzorom.settings"],
 
     libs: [
         "telephony-common",
@@ -117,7 +131,10 @@ android_app {
     uses_libs: ["org.apache.http.legacy"],
     resource_dirs: [],
     optimize: {
-        proguard_flags_files: ["proguard.flags"],
+        proguard_flags_files: [
+            "proguard.flags",
+            "proguard-benzo.flags",
+        ],
     },
 }
 
