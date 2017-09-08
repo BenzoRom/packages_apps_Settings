@@ -44,7 +44,15 @@ android_library {
         "SettingsLib-search-defaults",
     ],
 
-    srcs: ["src/**/*.java"],
+    srcs: [
+        "src/**/*.java",
+        "BenzoSettings/src/**/*.java",
+    ],
+
+    resource_dirs: [
+        "res",
+        "BenzoSettings/res",
+    ],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
@@ -74,6 +82,10 @@ android_library {
         "android.hardware.dumpstate-V1.1-java",
         "lottie",
     ],
+    manifest: "AndroidManifest.xml",
+    additional_manifests: ["BenzoManifest.xml"],
+
+    aaptflags: ["--extra-packages com.benzo.settings"],
 
     libs: [
         "telephony-common",
@@ -103,7 +115,10 @@ android_app {
     uses_libs: ["org.apache.http.legacy"],
     resource_dirs: [],
     optimize: {
-        proguard_flags_files: ["proguard.flags"],
+        proguard_flags_files: [
+            "proguard.flags",
+            "proguard-benzo.flags",
+        ],
     },
 }
 

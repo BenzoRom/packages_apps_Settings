@@ -39,6 +39,15 @@
         settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
 
     <Preference
+        android:fragment="com.benzo.settings.BenzoSettings"
+        android:icon="@drawable/ic_settings_benzo"
+        android:key="top_level_benzo"
+        android:order="-139"
+        android:title="@string/benzo_settings_title"
+        android:summary="@string/benzo_dashboard_summary"
+        settings:controller="com.benzo.settings.TopLevelBenzoSettingsPreferenceController"/>
+
+    <Preference
         android:fragment="com.android.settings.applications.AppDashboardFragment"
         android:icon="@drawable/ic_apps"
         android:key="top_level_apps"
