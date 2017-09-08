@@ -324,4 +324,9 @@ public class Settings extends SettingsActivity {
      * Activity for AppDashboard.
      */
     public static class AppDashboardActivity extends SettingsActivity {}
+
+    /**
+     * Activity for Benzo Extras
+     */
+    public static class BenzoSettingsActivity extends SettingsActivity {}
 }
