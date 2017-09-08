@@ -240,4 +240,8 @@ public class Settings extends SettingsActivity {
      */
     public static class MediaControlsSettingsActivity extends SettingsActivity {}
 
+    /**
+     * Activity for Benzo Extras
+     */
+    public static class BenzoSettingsActivity extends SettingsActivity { /* empty */ }
 }
