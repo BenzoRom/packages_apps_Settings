@@ -3393,6 +3393,8 @@
             <meta-data android:name="com.android.settings.summary"
                 android:resource="@string/benzo_dashboard_summary"/>
         </activity>
+        <!-- Hide Apps from Recents (HAFR) -->
+        <activity android:name="com.benzo.settings.hideappfromrecents.HAFRAppListActivity" />
 
         <activity android:name="Settings$GlobalActionsSettingsActivity"
                   android:label="@string/global_actions_title"
