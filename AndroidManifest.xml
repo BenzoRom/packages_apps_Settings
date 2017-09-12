@@ -3325,6 +3325,8 @@
             <meta-data android:name="com.android.settings.summary"
                 android:resource="@string/benzo_dashboard_summary"/>
         </activity>
+        <!-- Hide Apps from Recents (HAFR) -->
+        <activity android:name="com.benzo.settings.hideappfromrecents.HAFRAppListActivity" />
 
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
