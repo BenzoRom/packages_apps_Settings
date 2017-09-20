@@ -29,8 +29,6 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.testutils.SettingsRobolectricTestRunner;
-import com.android.settings.testutils.XmlTestUtils;
-import com.android.settings.testutils.shadow.ShadowUtils;
 import com.android.settingslib.DeviceInfoUtils;
 
 import org.junit.Before;
@@ -39,10 +37,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
-
-import java.util.List;
 
 @RunWith(SettingsRobolectricTestRunner.class)
 @Config(
@@ -84,17 +79,5 @@ public class DeviceInfoSettingsTest {
         mProvider.setListening(true);
 
         verify(mSummaryLoader).setSummary(mProvider, Build.MODEL + DeviceInfoUtils.getMsvSuffix());
-    }
-
-    @Test
-    public void testNonIndexableKeys_existInXmlLayout() {
-        final Context context = RuntimeEnvironment.application;
-        final List<String> niks = DeviceInfoSettings.SEARCH_INDEX_DATA_PROVIDER
-                .getNonIndexableKeys(context);
-        final int xmlId = (new DeviceInfoSettings()).getPreferenceScreenResId();
-
-        final List<String> keys = XmlTestUtils.getKeysFromPreferenceXml(context, xmlId);
-
-        assertThat(keys).containsAllIn(niks);
     }
 }
