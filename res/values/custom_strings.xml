@@ -261,4 +261,9 @@
     <string name="face_auto_unlock_title">Automatically unlock device</string>
     <string name="face_auto_unlock_summary">When face is recognized</string>
 
+    <!-- Increasing ring tone volume -->
+    <string name="increasing_ring_volume_option_title">Increasing ring volume</string>
+    <string name="increasing_ring_min_volume_title">Start volume</string>
+    <string name="increasing_ring_ramp_up_time_title">Ramp-up time</string>
+
 </resources>
