@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2016 Benzo Rom
+    Copyright (C) 2016 Benzo Rom
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <dimen name="fab_line_width">2dp</dimen>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Notification light -->
-    <dimen name="alert_dialog_padding_material">20dp</dimen>
-    <dimen name="oval_notification_size">26dp</dimen>
+    <!-- Default value for battery_light_enabled preference -->
+    <bool name="def_battery_light_enabled">true</bool>
+    <!-- Default value for battery light pulse -->
+    <bool name="def_battery_light_pulse">true</bool>
 
 </resources>

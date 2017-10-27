@@ -50,6 +50,7 @@ import com.android.settings.core.InstrumentedPreferenceFragment;
 import com.android.settings.core.instrumentation.Instrumentable;
 import com.android.settings.core.instrumentation.InstrumentedDialogFragment;
 import com.android.settings.widget.LoadingViewController;
+import com.android.settings.widget.CustomDialogPreferenceLOS;
 import com.android.settingslib.CustomDialogPreference;
 import com.android.settingslib.CustomEditTextPreference;
 import com.android.settingslib.HelpUtils;
@@ -589,7 +590,10 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
             preference.setKey(UUID.randomUUID().toString());
         }
         DialogFragment f = null;
-        if (preference instanceof RestrictedListPreference) {
+        if (preference instanceof CustomDialogPreference) {
+            f = CustomDialogPreference.CustomPreferenceDialogFragment
+                    .newInstance(preference.getKey());
+        } else if (preference instanceof RestrictedListPreference) {
             f = RestrictedListPreference.RestrictedListPreferenceDialogFragment
                     .newInstance(preference.getKey());
         } else if (preference instanceof CustomListPreference) {
@@ -600,6 +604,9 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
                     .newInstance(preference.getKey());
         } else if (preference instanceof CustomEditTextPreference) {
             f = CustomEditTextPreference.CustomPreferenceDialogFragment
+                    .newInstance(preference.getKey());
+        } else if (preference instanceof CustomDialogPreferenceLOS) {
+            f = CustomDialogPreferenceLOS.CustomPreferenceDialogFragment
                     .newInstance(preference.getKey());
         } else {
             super.onDisplayPreferenceDialog(preference);
