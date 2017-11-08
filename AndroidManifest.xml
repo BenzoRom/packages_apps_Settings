@@ -3330,6 +3330,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".wfc.DisclaimerActivity"
+                  android:label="@string/wifi_calling_settings_title"
+                  android:parentActivityName="Settings$WifiCallingSettingsActivity"
+                  android:enabled="true">
+        </activity>
+
         <!-- BenzoExtras -->
         <activity android:name="Settings$BenzoSettingsActivity"
             android:label="@string/benzo_settings_title"
