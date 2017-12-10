@@ -328,4 +328,8 @@
     <string name="led_color_red">Red</string>
     <string name="led_color_blue">Blue</string>
 
+    <!-- Ambient Display Brightness -->
+    <string name="ambient_doze_auto_brightness_title">Auto-brightness</string>
+    <string name="ambient_doze_auto_brightness_summary">Use last screen-on adaptive brightness value for Ambient Display</string>
+
 </resources>

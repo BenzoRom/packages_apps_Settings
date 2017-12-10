@@ -27,6 +27,11 @@
             android:title="@string/doze_always_on_title"
             android:summary="@string/doze_always_on_summary" />
 
+        <SwitchPreference
+            android:key="ambient_doze_auto_brightness"
+            android:title="@string/ambient_doze_auto_brightness_title"
+            android:summary="@string/ambient_doze_auto_brightness_summary" />
+
         <Preference
             android:key="ambient_display_double_tap"
             android:title="@string/ambient_display_title"
