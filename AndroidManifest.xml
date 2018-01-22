@@ -3273,6 +3273,7 @@
             <meta-data android:name="com.android.settings.summary"
                        android:resource="@string/fingerprint_swipe_for_notifications_suggestion_summary" />
         </activity>
+
         <!-- End activities for moves/gestures suggestions -->
 
         <activity android:name=".applications.autofill.AutofillPickerActivity"
