@@ -465,6 +465,7 @@ public class ChooseLockGeneric extends SettingsActivity {
                 addPreferences();
                 disableUnusablePreferences(quality, hideDisabledPrefs);
                 updatePreferenceText();
+                updatePreferenceIcon();
                 updateCurrentPreference();
                 updatePreferenceSummaryIfNeeded();
             } else if (!isRecreatingActivity) {
@@ -487,16 +488,10 @@ public class ChooseLockGeneric extends SettingsActivity {
             if (mForFingerprint) {
                 setPreferenceTitle(ScreenLockType.PATTERN,
                         R.string.fingerprint_unlock_set_unlock_pattern);
-                setPreferenceIcon(ScreenLockType.PATTERN,
-                        R.drawable.ic_security_pattern);
                 setPreferenceTitle(ScreenLockType.PIN,
                         R.string.fingerprint_unlock_set_unlock_pin);
-                setPreferenceIcon(ScreenLockType.PIN,
-                        R.drawable.ic_security_pin);
                 setPreferenceTitle(ScreenLockType.PASSWORD,
                         R.string.fingerprint_unlock_set_unlock_password);
-                setPreferenceIcon(ScreenLockType.PASSWORD,
-                        R.drawable.ic_security_pwd);
             }
 
             if (mManagedPasswordProvider.isSettingManagedPasswordSupported()) {
@@ -508,6 +503,17 @@ public class ChooseLockGeneric extends SettingsActivity {
 
             if (!(mForFingerprint && mIsSetNewPassword)) {
                 removePreference(KEY_SKIP_FINGERPRINT);
+            }
+        }
+
+        private void updatePreferenceIcon() {
+            if (mForFingerprint) {
+                setPreferenceIcon(ScreenLockType.PATTERN,
+                        R.drawable.ic_security_pattern);
+                setPreferenceIcon(ScreenLockType.PIN,
+                        R.drawable.ic_security_pin);
+                setPreferenceIcon(ScreenLockType.PASSWORD,
+                        R.drawable.ic_security_pwd);
             }
         }
 
