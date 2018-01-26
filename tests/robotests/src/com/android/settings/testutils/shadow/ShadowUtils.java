@@ -55,6 +55,11 @@ public class ShadowUtils {
         sIsDemoUser = false;
     }
 
+    @Implementation
+    public static boolean isWifiOnly(Context context) {
+        return true;
+    }
+
     public static void setIsDemoUser(boolean isDemoUser) {
         sIsDemoUser = isDemoUser;
     }
