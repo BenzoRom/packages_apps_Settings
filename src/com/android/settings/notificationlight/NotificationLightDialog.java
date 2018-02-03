@@ -20,6 +20,7 @@ package com.android.settings.notificationlight;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Color;
@@ -59,6 +60,7 @@ public class NotificationLightDialog extends AlertDialog implements
     private static final String TAG = "NotificationLightDialog";
     private final static String STATE_KEY_COLOR = "NotificationLightDialog:color";
     private final static long LED_UPDATE_DELAY_MS = 250;
+    private static final String CHANNEL_ID = "notification_settings_dialog";
 
     private ColorPickerView mColorPicker;
     private View mLightsDialogDivider;
@@ -77,6 +79,7 @@ public class NotificationLightDialog extends AlertDialog implements
     private OnColorChangedListener mListener;
 
     private NotificationManager mNotificationManager;
+    private NotificationChannel mNotificationChannel;
 
     private boolean mReadyForLed;
     private int mLedLastColor;
@@ -114,6 +117,12 @@ public class NotificationLightDialog extends AlertDialog implements
             boolean onOffChangeable) {
         mNotificationManager =
                 (NotificationManager) context.getSystemService(NotificationManager.class);
+        mNotificationChannel = new NotificationChannel(CHANNEL_ID,
+                context.getString(R.string.notification_settings_channel_name),
+                NotificationManager.IMPORTANCE_LOW);
+        mNotificationChannel.enableLights(true);
+        mNotificationChannel.setLightColor(color);
+        mNotificationManager.createNotificationChannel(mNotificationChannel);
 
         mReadyForLed = false;
         mLedLastColor = 0;
@@ -377,7 +386,7 @@ public class NotificationLightDialog extends AlertDialog implements
         final Bundle b = new Bundle();
         b.putBoolean(Notification.EXTRA_FORCE_SHOW_LIGHTS, true);
 
-        final Notification.Builder builder = new Notification.Builder(getContext());
+        final Notification.Builder builder = new Notification.Builder(getContext(), CHANNEL_ID);
         builder.setLights(color, speedOn, speedOff);
         builder.setExtras(b);
 
@@ -387,7 +396,9 @@ public class NotificationLightDialog extends AlertDialog implements
         builder.setContentText(getContext().getString(R.string.led_notification_text));
         builder.setOngoing(false);
 
+        mNotificationChannel.setLightColor(color);
         mNotificationManager.notify(1, builder.build());
+        mNotificationManager.forcePulseLedLight(color, speedOn, speedOff);
     }
 
     public void dismissLed() {
@@ -395,6 +406,8 @@ public class NotificationLightDialog extends AlertDialog implements
         // ensure we later reset LED if dialog is
         // hidden and then made visible
         mLedLastColor = 0;
+        mNotificationManager.deleteNotificationChannel(CHANNEL_ID);
+        mNotificationManager.forcePulseLedLight(-1, -1, -1);
     }
 
     class PulseSpeedAdapter extends BaseAdapter implements SpinnerAdapter {
