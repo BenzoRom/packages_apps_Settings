@@ -147,6 +147,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         } else {
             mCustomEnabledPref.setOnPreferenceChangeListener(this);
             mDefaultPref.setOnPreferenceChangeListener(this);
+            mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.notification_light_settings_footer);
         }
 
         // Missed call and Voicemail preferences should only show on devices with a voice capabilities
@@ -258,12 +259,9 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
             /* Display a pref explaining how to add apps */
             if (mApplicationPrefList.getPreferenceCount() == 0) {
-                String summary = getResources().getString(
-                        R.string.notification_light_no_apps_summary);
                 String useCustom = getResources().getString(
                         R.string.notification_light_use_custom);
                 Preference pref = new Preference(context);
-                pref.setSummary(String.format(summary, useCustom));
                 pref.setEnabled(false);
                 mApplicationPrefList.addPreference(pref);
             }

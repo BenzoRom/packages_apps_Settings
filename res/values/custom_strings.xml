@@ -249,7 +249,7 @@
     <string name="fp_swipe_to_dismiss_notifications_summary">To dismiss your notifications, swipe left or right on the fingerprint sensor.</string>
 
     <!-- Notification light dialogs -->
-    <string name="notification_settings_channel_name">LightsSettings</string>
+    <string name="notification_light_settings_footer">To set per-app light colors you must first enable \'use cutom values\' then push the \'\u002b\' button in the actionbar above. To remove app from the list press and hold on it.</string>
     <string name="edit_light_settings">Edit light settings</string>
     <string name="pulse_speed_title">Pulse length and speed</string>
     <string name="default_time">Normal</string>
@@ -285,7 +285,6 @@
     <string name="battery_light_settings">Battery light</string>
     <string name="led_notification_title">Light settings</string>
     <string name="led_notification_text">LED light enabled by settings</string>
-    <string name="notification_light_no_apps_summary">To add per app control, activate \'%1$s\' and press \'\u002b\' on the menu bar</string>
     <string name="batterylight_title">Battery LED settings</string>
     <string name="battery_light_enable">Enable</string>
     <string name="battery_low_pulse_title">Pulse if battery low</string>
