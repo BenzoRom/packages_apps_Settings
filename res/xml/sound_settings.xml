@@ -59,6 +59,12 @@
                 android:key="vibrate_when_ringing"
                 android:title="@string/vibrate_when_ringing_title" />
 
+        <com.android.settings.preference.SystemSettingSwitchPreference
+                android:key="incall_notifications_vibrate"
+                android:title="@string/incall_notifications_vibrate"
+                android:summary="@string/incall_notifications_vibrate_summary"
+                android:defaultValue="false" />
+
         <!-- Increasing ring -->
         <com.android.settings.preference.SystemSettingSwitchPreference
                 android:key="increasing_ring"

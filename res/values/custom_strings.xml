@@ -321,4 +321,8 @@
     <string name="select_default_usb_configuration_dialog_title">Select USB Configuration</string>
     <string name="default_usb_configuration" translatable="false" >default</string>
 
+    <!-- Less annoying in call notifications -->
+    <string name="incall_notifications_vibrate">Vibrate in-call notifications</string>
+    <string name="incall_notifications_vibrate_summary">Vibrate instead of playing a sound for in-call notifications</string>
+
 </resources>
