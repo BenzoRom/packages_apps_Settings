@@ -1802,18 +1802,13 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private void updateUsbConfigurationValues() {
         if (mUsbConfiguration != null) {
-            String defaultConfig = getResources().getString(R.string.default_usb_configuration);
+            UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
+
             String[] values = getResources().getStringArray(R.array.usb_configuration_values);
             String[] titles = getResources().getStringArray(R.array.usb_configuration_titles);
-            String func = Settings.Global.getString(getActivity().getContentResolver(),
-                    Settings.Global.USB_DEFAULT_CONFIGURATION);
-            if (func == null) {
-                func = defaultConfig;
-            }
-
             int index = 0;
             for (int i = 0; i < titles.length; i++) {
-                if (values[i].equals(func)) {
+                if (manager.isFunctionEnabled(values[i])) {
                     index = i;
                     break;
                 }
@@ -1825,14 +1820,12 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     }
 
     private void writeUsbConfigurationOption(Object newValue) {
-        String defaultConfig = getResources().getString(R.string.default_usb_configuration);
+        UsbManager manager = (UsbManager) getActivity().getSystemService(Context.USB_SERVICE);
         String function = newValue.toString();
-        if (function.equals(defaultConfig)) {
-            Settings.Global.putString(getActivity().getContentResolver(),
-                    Settings.Global.USB_DEFAULT_CONFIGURATION, null);
+        if (function.equals("none")) {
+            manager.setCurrentFunction(function, false);
         } else {
-            Settings.Global.putString(getActivity().getContentResolver(),
-                    Settings.Global.USB_DEFAULT_CONFIGURATION, function);
+            manager.setCurrentFunction(function, true);
         }
     }
 
