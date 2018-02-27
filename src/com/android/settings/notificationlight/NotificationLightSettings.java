@@ -28,6 +28,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
@@ -46,6 +47,8 @@ import android.widget.ListView;
 import com.android.settings.R;
 import com.android.settings.preference.SystemSettingSwitchPreference;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
 import com.android.settings.widget.PackageListAdapter;
 import com.android.settings.widget.PackageListAdapter.PackageItem;
@@ -61,7 +64,8 @@ import com.android.internal.notification.LightsCapabilities;
 import com.android.internal.logging.nano.MetricsProto;
 
 public class NotificationLightSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener, ApplicationLightPreference.ItemLongClickListener {
+        Preference.OnPreferenceChangeListener, ApplicationLightPreference.ItemLongClickListener,
+        Indexable {
     private static final String TAG = "NotificationLightSettings";
     private static final String DEFAULT_PREF = "default";
     private static final String MISSED_CALL_PREF = "missed_call";
@@ -580,4 +584,25 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BENZO;
     }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.notification_light_settings;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
+                }
+    };
 }
