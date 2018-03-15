@@ -3298,9 +3298,9 @@
         <activity android:name="Settings$BenzoSettingsActivity"
             android:label="@string/benzo_settings_title"
             android:icon="@drawable/ic_settings_benzo"
-            android:taskAffinity="">
+            android:taskAffinity="com.android.settings">
             <intent-filter android:priority="1">
-                <action android:name="benzo.settings.BenzoSettings" />
+                <action android:name="com.benzo.settings.BenzoSettings" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
