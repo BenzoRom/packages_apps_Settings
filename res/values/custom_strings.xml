@@ -27,6 +27,7 @@
     <string name="benzo_settings_title">Benzo Extras</string>
     <string name="benzo_dashboard_summary">Most extra features added into Benzo.</string>
     <string name="global_actions_title">Power menu</string>
+    <string name="smart_pixels_settings_title">Smart Pixels</string>
 
      <!-- Benzo version -->
     <string name="benzo_version">Benzo version</string>
