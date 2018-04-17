@@ -153,7 +153,6 @@ public class ManageApplications extends InstrumentedPreferenceFragment
     public static final int FILTER_APPS_WRITE_SETTINGS = 11;
     public static final int FILTER_APPS_INSTALL_SOURCES = 12;
     public static final int FILTER_APPS_COUNT = 13;  // This should always be the last entry
-    public static final int FILTER_APPS_SUBSTRATUM = 16;
 
     // Mapping to string labels for the FILTER_APPS_* constants above.
     @IdRes
@@ -709,12 +708,12 @@ public class ManageApplications extends InstrumentedPreferenceFragment
         mOptionsMenu.findItem(R.id.hide_system).setVisible(mShowSystem
                 && mListType != LIST_TYPE_HIGH_POWER);
 
-        mOptionsMenu.findItem(R.id.reset_app_preferences).setVisible(mListType == LIST_TYPE_MAIN);
-
         mOptionsMenu.findItem(R.id.show_substratum).setVisible(!mShowSubstratum
                 && mListType != LIST_TYPE_HIGH_POWER && mAppOverlayInstalled);
         mOptionsMenu.findItem(R.id.hide_substratum).setVisible(mShowSubstratum
                 && mListType != LIST_TYPE_HIGH_POWER && mAppOverlayInstalled);
+
+        mOptionsMenu.findItem(R.id.reset_app_preferences).setVisible(mListType == LIST_TYPE_MAIN);
     }
 
     @Override
@@ -1095,15 +1094,23 @@ public class ManageApplications extends InstrumentedPreferenceFragment
                 if (LIST_TYPES_WITH_INSTANT.contains(mManageApplications.mListType)) {
                     filterObj = new CompoundFilter(filterObj,
                             ApplicationsState.FILTER_DOWNLOADED_AND_LAUNCHER_AND_INSTANT);
+                } else {
                     filterObj = new CompoundFilter(filterObj,
-                            ApplicationsState.FILTER_SUBSTRATUM);
-                } else if (!mManageApplications.mShowSystem) {
+                            ApplicationsState.FILTER_DOWNLOADED_AND_LAUNCHER);
+                }
+                filterObj = new CompoundFilter(filterObj,
+                        ApplicationsState.FILTER_SUBSTRATUM);
+            } else if (!mManageApplications.mShowSystem) {
+                if (LIST_TYPES_WITH_INSTANT.contains(mManageApplications.mListType)) {
                     filterObj = new CompoundFilter(filterObj,
                             ApplicationsState.FILTER_DOWNLOADED_AND_LAUNCHER_AND_INSTANT);
-                } else if (!mManageApplications.mShowSubstratum) {
+                } else {
                     filterObj = new CompoundFilter(filterObj,
-                            ApplicationsState.FILTER_SUBSTRATUM);
+                            ApplicationsState.FILTER_DOWNLOADED_AND_LAUNCHER);
                 }
+            } else if (!mManageApplications.mShowSubstratum) {
+                filterObj = new CompoundFilter(filterObj,
+                        ApplicationsState.FILTER_SUBSTRATUM);
             }
             switch (mLastSortMode) {
                 case R.id.sort_order_size:
