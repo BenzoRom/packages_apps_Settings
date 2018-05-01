@@ -471,4 +471,8 @@
     <!-- Running services -->
     <string name="background_processes_settings_title">Background processes</string>
 
+    <!-- Auto Face Unlock -->
+    <string name="face_auto_unlock_title">Automatically unlock device</string>
+    <string name="face_auto_unlock_summary">When face is recognized</string>
+
 </resources>
