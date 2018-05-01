@@ -256,4 +256,8 @@
     <string name="three_finger_gesture">Three finger gesture</string>
     <string name="three_finger_gesture_summary">Swipe three finger to screenshot</string>
 
+    <!-- Auto Face Unlock -->
+    <string name="face_auto_unlock_title">Automatically unlock device</string>
+    <string name="face_auto_unlock_summary">When face is recognized</string>
+
 </resources>
