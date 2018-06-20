@@ -489,4 +489,10 @@
     <string name="battery_fully_charged_title">Battery charged notification</string>
     <string name="battery_fully_charged_summary">Show a notification when the battery is fully charged</string>
 
+    <!-- Hardware info -->
+    <!-- Label for device's hardware platform value [CHAR LIMIT=40] -->
+    <string name="platform_revision">Platform</string>
+    <!-- Label for device's hardware ram size [CHAR LIMIT=40] -->
+    <string name="total_ram">Total RAM</string>
+
 </resources>
