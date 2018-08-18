@@ -21,4 +21,6 @@
     <!-- Default value for battery light pulse -->
     <bool name="def_battery_light_pulse">true</bool>
 
+    <string name="gesture_double_tap_power_torch_toast">Screen off torch gesture is now disabled</string>
+
 </resources>
