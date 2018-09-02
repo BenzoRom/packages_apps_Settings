@@ -28,6 +28,17 @@
     <string name="benzo_dashboard_summary">Most extra features added into Benzo.</string>
     <string name="global_actions_title">Power menu</string>
     <string name="smart_pixels_settings_title">Smart Pixels</string>
+    <string name="benzo_extras_buttons_title">Buttons</string>
+    <string name="benzo_extras_inputsettings_title">Input Settings</string>
+    <string name="benzo_extras_lockscreen_title">Locksceen Settings</string>
+    <string name="benzo_extras_navbar_title">Navigation Bar</string>
+    <string name="benzo_extras_notifications_title">Notifications</string>
+    <string name="benzo_extras_quicksettings_title">Quick Settings</string>
+    <string name="benzo_extras_recents_title">Recents Settings</string>
+    <string name="benzo_extras_statusbar_title">Statusbar Settings</string>
+    <string name="benzo_extras_volumesteps_title">Volume Steps</string>
+    <string name="benzo_extras_animations_title">Animations Settings</string>
+    <string name="benzo_extras_headsup_title">Heads-Up Settings</string>
 
      <!-- Benzo version -->
     <string name="benzo_version">Benzo version</string>

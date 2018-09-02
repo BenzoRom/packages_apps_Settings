@@ -138,9 +138,20 @@ import com.android.settings.wifi.calling.WifiCallingSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
+import com.benzo.settings.animation.AnimationSettings;
 import com.benzo.settings.BenzoSettings;
+import com.benzo.settings.ButtonSettings;
 import com.benzo.settings.GlobalActionsSettings;
+import com.benzo.settings.headsup.HeadsUpSettings;
+import com.benzo.settings.InputMethodsSettings;
+import com.benzo.settings.LockScreenSettings;
+import com.benzo.settings.NavbarSettings;
+import com.benzo.settings.Notifications;
+import com.benzo.settings.QuickSettings;
+import com.benzo.settings.RecentsSettings;
 import com.benzo.settings.SmartPixels;
+import com.benzo.settings.StatusbarSettings;
+import com.benzo.settings.VolumeStepsFragment;
 
 public class SettingsGateway {
 
@@ -270,6 +281,17 @@ public class SettingsGateway {
             BenzoSettings.class.getName(),
             GlobalActionsSettings.class.getName(),
             SmartPixels.class.getName(),
+            ButtonSettings.class.getName(),
+            InputMethodsSettings.class.getName(),
+            LockScreenSettings.class.getName(),
+            NavbarSettings.class.getName(),
+            Notifications.class.getName(),
+            QuickSettings.class.getName(),
+            RecentsSettings.class.getName(),
+            StatusbarSettings.class.getName(),
+            VolumeStepsFragment.class.getName(),
+            AnimationSettings.class.getName(),
+            HeadsUpSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -309,6 +331,18 @@ public class SettingsGateway {
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.MyDeviceInfoActivity.class.getName(),
             Settings.BenzoSettingsActivity.class.getName(),
+            Settings.GlobalActionsSettingsActivity.class.getName(),
             Settings.SmartPixelsActivity.class.getName(),
+            Settings.ButtonSettingsActivity.class.getName(),
+            Settings.InputMethodsSettingsActivity.class.getName(),
+            Settings.LockScreenSettingsActivity.class.getName(),
+            Settings.NavbarSettingsActivity.class.getName(),
+            Settings.NotificationsActivity.class.getName(),
+            Settings.QuickSettingsActivity.class.getName(),
+            Settings.RecentsSettingsActivity.class.getName(),
+            Settings.StatusbarSettingsActivity.class.getName(),
+            Settings.VolumeStepsFragmentActivity.class.getName(),
+            Settings.AnimationSettingsActivity.class.getName(),
+            Settings.HeadsUpSettingsActivity.class.getName()
     };
 }

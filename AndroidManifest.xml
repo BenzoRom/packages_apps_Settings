@@ -3392,9 +3392,32 @@
             <meta-data android:name="com.android.settings.summary"
                 android:resource="@string/benzo_dashboard_summary"/>
         </activity>
-        <!-- Hide Apps from Recents (HAFR) -->
-        <activity android:name="com.benzo.settings.hideappfromrecents.HAFRAppListActivity" />
 
+        <!-- Animation Settings -->
+        <activity android:name="Settings$AnimationSettingsActivity"
+                  android:label="@string/benzo_extras_animations_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.animation.AnimationSettings" />
+        </activity>
+
+        <!-- Button Settings -->
+        <activity android:name="Settings$ButtonSettingsActivity"
+                  android:label="@string/benzo_extras_buttons_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.ButtonSettings" />
+        </activity>
+
+        <!-- Global Actions-->
         <activity android:name="Settings$GlobalActionsSettingsActivity"
                   android:label="@string/global_actions_title"
                   android:taskAffinity="com.android.settings"
@@ -3406,7 +3429,102 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.benzo.settings.GlobalActionsSettings" />
         </activity>
-	<activity android:name=".deviceinfo.Changelog" />
+
+        <!-- Heads-up Settings -->
+        <activity android:name="Settings$HeadsUpSettingsActivity"
+                  android:label="@string/benzo_extras_headsup_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.headsup.HeadsUpSettings" />
+        </activity>
+
+        <!-- Input Method Settings -->
+        <activity android:name="Settings$InputMethodsSettingsActivity"
+                  android:label="@string/benzo_extras_inputsettings_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.InputMethodsSettings" />
+        </activity>
+
+        <!-- Lockscreen Settings -->
+        <activity android:name="Settings$LockScreenSettingsActivity"
+                  android:label="@string/benzo_extras_lockscreen_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.LockScreenSettings" />
+        </activity>
+
+        <!-- Navbar Settings -->
+        <activity android:name="Settings$NavbarSettingsActivity"
+                  android:label="@string/benzo_extras_navbar_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.NavbarSettings" />
+        </activity>
+
+        <!-- Notification Settings -->
+        <activity android:name="Settings$NotificationsActivity"
+                  android:label="@string/benzo_extras_notifications_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.Notifications" />
+        </activity>
+
+        <!-- Quick Settings -->
+        <activity android:name="Settings$QuickSettingsActivity"
+                  android:label="@string/benzo_extras_quicksettings_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.QuickSettings" />
+        </activity>
+
+        <!-- Recents Settings -->
+        <activity android:name="Settings$RecentsSettingsActivity"
+                  android:label="@string/benzo_extras_recents_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.RecentsSettings" />
+        </activity>
+
+        <!-- Statusbar Settings -->
+        <activity android:name="Settings$StatusbarSettingsActivity"
+                  android:label="@string/benzo_extras_statusbar_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.StatusbarSettings" />
+        </activity>
 
         <!-- Smart Pixels -->
         <activity android:name="Settings$SmartPixelsActivity"
@@ -3418,6 +3536,24 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.benzo.settings.SmartPixels" />
         </activity>
+
+        <!-- Volume Step Settings -->
+        <activity android:name="Settings$VolumeStepsFragmentActivity"
+                  android:label="@string/benzo_extras_volumesteps_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.VolumeStepsFragment" />
+        </activity>
+
+        <!-- Hide Apps from Recents (HAFR) -->
+        <activity android:name="com.benzo.settings.hideappfromrecents.HAFRAppListActivity" />
+
+        <!-- Changelog -->
+	<activity android:name=".deviceinfo.Changelog" />
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
 </manifest>

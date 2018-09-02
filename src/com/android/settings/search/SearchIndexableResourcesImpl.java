@@ -98,6 +98,21 @@ import com.android.settings.wfd.WifiDisplaySettings;
 import com.android.settings.wifi.ConfigureWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 
+import com.benzo.settings.animation.AnimationSettings;
+import com.benzo.settings.BenzoSettings;
+import com.benzo.settings.ButtonSettings;
+import com.benzo.settings.GlobalActionsSettings;
+import com.benzo.settings.headsup.HeadsUpSettings;
+import com.benzo.settings.InputMethodsSettings;
+import com.benzo.settings.LockScreenSettings;
+import com.benzo.settings.NavbarSettings;
+import com.benzo.settings.Notifications;
+import com.benzo.settings.QuickSettings;
+import com.benzo.settings.RecentsSettings;
+import com.benzo.settings.SmartPixels;
+import com.benzo.settings.StatusbarSettings;
+import com.benzo.settings.VolumeStepsFragment;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -191,6 +206,20 @@ public class SearchIndexableResourcesImpl implements SearchIndexableResources {
         addIndex(RecentLocationRequestSeeAllFragment.class);
         addIndex(PreviouslyConnectedDeviceDashboardFragment.class);
         addIndex(BluetoothDashboardFragment.class);
+        addIndex(AnimationSettings.class);
+        addIndex(BenzoSettings.class);
+        addIndex(ButtonSettings.class);
+        addIndex(GlobalActionsSettings.class);
+        addIndex(HeadsUpSettings.class);
+        addIndex(InputMethodsSettings.class);
+        addIndex(LockScreenSettings.class);
+        addIndex(NavbarSettings.class);
+        addIndex(Notifications.class);
+        addIndex(QuickSettings.class);
+        addIndex(RecentsSettings.class);
+        addIndex(SmartPixels.class);
+        addIndex(StatusbarSettings.class);
+        addIndex(VolumeStepsFragment.class);
     }
 
     @Override

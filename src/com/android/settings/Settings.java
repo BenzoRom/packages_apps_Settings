@@ -180,4 +180,15 @@ public class Settings extends SettingsActivity {
     public static class BenzoSettingsActivity extends SettingsActivity { /* empty */ }
     public static class GlobalActionsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SmartPixelsActivity extends SettingsActivity { /* empty */ }
+    public static class ButtonSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class InputMethodsSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class LockScreenSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class NavbarSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class NotificationsActivity extends SettingsActivity { /* empty */ }
+    public static class QuickSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class RecentsSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class StatusbarSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class VolumeStepsFragmentActivity extends SettingsActivity { /* empty */ }
+    public static class AnimationSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
 }
