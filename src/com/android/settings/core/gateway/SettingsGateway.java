@@ -149,6 +149,7 @@ import com.benzo.settings.LockScreenSettings;
 import com.benzo.settings.MoreSettings;
 import com.benzo.settings.NavbarSettings;
 import com.benzo.settings.Notifications;
+import com.benzo.settings.PieSettings;
 import com.benzo.settings.QuickSettings;
 import com.benzo.settings.RecentsSettings;
 import com.benzo.settings.SmartPixels;
@@ -295,7 +296,8 @@ public class SettingsGateway {
             VolumeStepsFragment.class.getName(),
             AnimationSettings.class.getName(),
             HeadsUpSettings.class.getName(),
-            RunningServices.class.getName()
+            RunningServices.class.getName(),
+            PieSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -349,6 +351,6 @@ public class SettingsGateway {
             Settings.VolumeStepsFragmentActivity.class.getName(),
             Settings.AnimationSettingsActivity.class.getName(),
             Settings.HeadsUpSettingsActivity.class.getName(),
-            Settings.DevRunningServicesActivity.class.getName()
+            Settings.DevRunningServicesActivity.class.getName(),
     };
 }

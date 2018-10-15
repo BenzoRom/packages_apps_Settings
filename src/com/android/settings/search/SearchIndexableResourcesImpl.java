@@ -108,6 +108,7 @@ import com.benzo.settings.LockScreenSettings;
 import com.benzo.settings.MoreSettings;
 import com.benzo.settings.NavbarSettings;
 import com.benzo.settings.Notifications;
+import com.benzo.settings.PieSettings;
 import com.benzo.settings.QuickSettings;
 import com.benzo.settings.RecentsSettings;
 import com.benzo.settings.SmartPixels;
@@ -222,6 +223,7 @@ public class SearchIndexableResourcesImpl implements SearchIndexableResources {
         addIndex(SmartPixels.class);
         addIndex(StatusbarSettings.class);
         addIndex(VolumeStepsFragment.class);
+        addIndex(PieSettings.class);
     }
 
     @Override
