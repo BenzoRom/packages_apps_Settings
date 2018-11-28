@@ -41,6 +41,7 @@
     <string name="benzo_extras_volumesteps_title">Volume Steps</string>
     <string name="benzo_extras_animations_title">Animations Settings</string>
     <string name="benzo_extras_headsup_title">Heads-Up Settings</string>
+    <string name="benzo_extras_more_title">More Settings</string>
 
      <!-- Benzo version -->
     <string name="benzo_version">Benzo version</string>

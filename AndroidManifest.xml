@@ -3507,6 +3507,18 @@
                 android:value="com.benzo.settings.LockScreenSettings" />
         </activity>
 
+        <!-- More Settings -->
+        <activity android:name="Settings$MoreSettingsActivity"
+                  android:label="@string/benzo_extras_more_title"
+                  android:taskAffinity="com.android.settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzo.settings.MoreSettings" />
+        </activity>
+
         <!-- Navbar Settings -->
         <activity android:name="Settings$NavbarSettingsActivity"
                   android:label="@string/benzo_extras_navbar_title"

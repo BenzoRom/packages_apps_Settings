@@ -150,6 +150,7 @@ import com.benzo.settings.MoreSettings;
 import com.benzo.settings.NavbarSettings;
 import com.benzo.settings.Notifications;
 import com.benzo.settings.QuickSettings;
+import com.benzo.settings.RecentsSettings;
 import com.benzo.settings.SmartPixels;
 import com.benzo.settings.StatusbarSettings;
 import com.benzo.settings.VolumeStepsFragment;
@@ -285,10 +286,11 @@ public class SettingsGateway {
             ButtonSettings.class.getName(),
             InputMethodsSettings.class.getName(),
             LockScreenSettings.class.getName(),
+            MoreSettings.class.getName(),
             NavbarSettings.class.getName(),
             Notifications.class.getName(),
             QuickSettings.class.getName(),
-            MoreSettings.class.getName(),
+            RecentsSettings.class.getName(),
             StatusbarSettings.class.getName(),
             VolumeStepsFragment.class.getName(),
             AnimationSettings.class.getName(),
@@ -338,6 +340,7 @@ public class SettingsGateway {
             Settings.ButtonSettingsActivity.class.getName(),
             Settings.InputMethodsSettingsActivity.class.getName(),
             Settings.LockScreenSettingsActivity.class.getName(),
+            Settings.MoreSettingsActivity.class.getName(),
             Settings.NavbarSettingsActivity.class.getName(),
             Settings.NotificationsActivity.class.getName(),
             Settings.QuickSettingsActivity.class.getName(),
