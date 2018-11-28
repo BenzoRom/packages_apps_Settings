@@ -165,17 +165,25 @@
         android:title="@string/benzo_version"
         android:summary="@string/benzo_version_default" />
 
+    <!-- Device Kernel version -->
+    <Preference
+        android:key="kernel_version"
+        android:order="45"
+        android:title="@string/kernel_version"
+        android:summary="@string/summary_placeholder"
+        android:selectable="false"/>
+
     <!-- Clang version -->
     <Preference
         android:key="clang_version"
-        android:order="45"
+        android:order="46"
         android:title="@string/clang_version"
         android:summary="@string/clang_version_default" />
 
     <!-- SELinux status information -->
     <Preference
         android:key="selinux_status"
-        android:order="46"
+        android:order="47"
         android:title="@string/selinux_status"
         android:summary="@string/selinux_status_enforcing"
         android:selectable="false"/>
