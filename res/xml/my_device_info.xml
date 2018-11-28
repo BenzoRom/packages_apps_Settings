@@ -200,4 +200,12 @@
         android:summary="@string/benzo_version_default"
         android:selectable="false"/>
 
+    <!-- SELinux status information -->
+    <Preference
+        android:key="selinux_status"
+        android:order="55"
+        android:title="@string/selinux_status"
+        android:summary="@string/selinux_status_enforcing"
+        android:selectable="false"/>
+
 </PreferenceScreen>
