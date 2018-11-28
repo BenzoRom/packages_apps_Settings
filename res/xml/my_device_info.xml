@@ -172,4 +172,12 @@
         android:title="@string/clang_version"
         android:summary="@string/clang_version_default" />
 
+    <!-- SELinux status information -->
+    <Preference
+        android:key="selinux_status"
+        android:order="46"
+        android:title="@string/selinux_status"
+        android:summary="@string/selinux_status_enforcing"
+        android:selectable="false"/>
+
 </PreferenceScreen>
