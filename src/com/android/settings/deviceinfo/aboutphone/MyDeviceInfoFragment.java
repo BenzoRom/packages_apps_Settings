@@ -49,6 +49,7 @@ import com.android.settings.deviceinfo.ManualPreferenceController;
 import com.android.settings.deviceinfo.PhoneNumberPreferenceController;
 import com.android.settings.deviceinfo.RegulatoryInfoPreferenceController;
 import com.android.settings.deviceinfo.SafetyInfoPreferenceController;
+import com.android.settings.deviceinfo.SecurityPatchPreferenceController;
 import com.android.settings.deviceinfo.SELinuxStatusPreferenceController;
 import com.android.settings.deviceinfo.WifiMacAddressPreferenceController;
 import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController;
@@ -137,6 +138,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
         controllers.add(new ClangVersionPreferenceController(context));
         controllers.add(new SELinuxStatusPreferenceController(context));
         controllers.add(new KernelVersionPreferenceController(context));
+        controllers.add(new SecurityPatchPreferenceController(context));
         return controllers;
     }
 

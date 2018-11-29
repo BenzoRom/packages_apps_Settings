@@ -102,7 +102,17 @@
         android:order="32"
         android:title="@string/firmware_version"
         settings:keywords="@string/keywords_android_version"
-        android:summary="@string/summary_placeholder"/>
+        android:summary="@string/summary_placeholder"
+        android:selectable="false"/>
+
+    <!-- Security patch level -->
+    <Preference android:key="security_patch"
+            android:title="@string/security_patch"
+            android:summary="@string/summary_placeholder"
+            android:order="33">
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="https://source.android.com/security/bulletin/" />
+    </Preference>
 
     <!--IP address -->
     <Preference
