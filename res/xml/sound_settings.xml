@@ -170,27 +170,32 @@
         <!-- Dial pad tones -->
         <SwitchPreference
           android:key="dial_pad_tones"
-          android:title="@string/dial_pad_tones_title" />
+          android:title="@string/dial_pad_tones_title"
+          android:summary="@string/dial_pad_tones_summary" />
 
         <!-- Screen locking sounds -->
         <SwitchPreference
           android:key="screen_locking_sounds"
-          android:title="@string/screen_locking_sounds_title" />
+          android:title="@string/screen_locking_sounds_title"
+          android:summary="@string/screen_locking_sounds_summary" />
 
         <!-- Charging sounds -->
         <SwitchPreference
           android:key="charging_sounds"
-          android:title="@string/charging_sounds_title" />
+          android:title="@string/charging_sounds_title"
+          android:summary="@string/charging_sounds_summary" />
 
         <!-- Docking sounds -->
         <SwitchPreference
           android:key="docking_sounds"
-          android:title="@string/docking_sounds_title" />
+          android:title="@string/docking_sounds_title"
+          android:summary="@string/docking_sounds_summary" />
 
         <!-- Touch sounds -->
         <SwitchPreference
           android:key="touch_sounds"
-          android:title="@string/touch_sounds_title" />
+          android:title="@string/touch_sounds_title"
+          android:summary="@string/touch_sounds_summary" />
 
         <!-- Vibrate on touch -->
         <SwitchPreference
@@ -217,8 +222,9 @@
 
         <!-- Screenshot sound -->
         <SwitchPreference
-            android:key="screenshot_shutter_sound"
-            android:title="@string/screenshot_shutter_sound_title" />
+          android:key="screenshot_shutter_sound"
+          android:title="@string/screenshot_shutter_sound_title"
+          android:summary="@string/screenshot_shutter_sound_summary" />
     </PreferenceCategory>
 
     <com.android.settings.widget.WorkOnlyCategory
