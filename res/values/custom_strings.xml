@@ -486,4 +486,9 @@
     <string name="touch_sounds_summary">When pressing buttons or navigation bar</string>
     <string name="docking_sounds_summary">Play sound when you dock your phone</string>
     <string name="screenshot_shutter_sound_summary">Camera shutter sound when taking screenshots</string>
+
+    <!-- AmbientDisplay music ticker -->
+    <string name="force_ambient_for_media_title">Music Ticker</string>
+    <string name="force_ambient_for_media_summary">Show track info when pulsing and force pulse when new track starts</string>
+
 </resources>
