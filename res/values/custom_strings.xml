@@ -21,6 +21,10 @@
     <string name="benzo_dashboard_summary">Most extra features added into Benzo</string>
     <string name="global_actions_title">Power menu</string>
     <string name="benzo_extras_volumesteps_title">Volume Steps</string>
+    <string name="benzo_extras_quicksettings_title">Quick Settings</string>
+    <string name="benzo_extras_buttons_title">Keyboard and IME</string>
+    <string name="benzo_extras_keyboard_ime_title">Keyboard and IME</string>
+    <string name="benzo_extras_lockscreen_title">Lockscreen</string>
 
      <!-- Benzo version -->
     <string name="benzo_version">Benzo version</string>
