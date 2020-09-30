@@ -169,6 +169,8 @@ import com.benzo.settings.BenzoSettings;
 import com.benzo.settings.ButtonSettings;
 import com.benzo.settings.GlobalActionsSettings;
 import com.benzo.settings.QuickSettings;
+import com.benzo.settings.StatusbarSettings;
+import com.benzo.settings.VisualizerSettings;
 import com.benzo.settings.VolumeStepsFragment;
 
 public class SettingsGateway {
@@ -328,7 +330,9 @@ public class SettingsGateway {
             ButtonSettings.class.getName(),
             QuickSettings.class.getName(),
             GlobalActionsSettings.class.getName(),
-            VolumeStepsFragment.class.getName()
+            VolumeStepsFragment.class.getName(),
+            StatusbarSettings.class.getName(),
+            VisualizerSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -373,5 +377,7 @@ public class SettingsGateway {
             Settings.QuickSettingsActivity.class.getName(),
             Settings.GlobalActionsSettingsActivity.class.getName(),
             Settings.VolumeStepsFragmentActivity.class.getName(),
+            Settings.StatusbarSettingsActivity.class.getName(),
+            Settings.VisualizerSettingsActivity.class.getName(),
     };
 }
