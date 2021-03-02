@@ -40,4 +40,8 @@
     <!-- App details: open play store link -->
     <string name="app_play_store">Google Play</string>
 
+    <!-- Wellbeing: Total time -->
+    <string name="duration_less_than_one_minute">Less than 1 minute</string>
+    <string name="screen_time_summary_usage_today">%1$s today</string>
+
 </resources>
