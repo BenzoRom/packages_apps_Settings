@@ -209,6 +209,11 @@
         com.android.settings.intelligence
     </string>
 
+    <!-- Settings intelligence SuggestionService class name -->
+    <string name="config_settingsintelligence_suggestions_class" translatable="false">
+        com.android.settings.intelligence.suggestions.SuggestionService
+    </string>
+
     <!-- Whether the confirmation for sim deletion is defaulted to be on or off-->
     <bool name="config_sim_deletion_confirmation_default_on">false</bool>
 
