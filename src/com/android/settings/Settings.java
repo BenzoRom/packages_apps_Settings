@@ -329,4 +329,6 @@ public class Settings extends SettingsActivity {
      * Activity for Benzo Extras
      */
     public static class BenzoSettingsActivity extends SettingsActivity {}
+    public static class QuickSettingsActivity extends SettingsActivity {}
+    public static class ButtonSettingsActivity extends SettingsActivity {}
 }
