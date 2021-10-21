@@ -42,5 +42,35 @@
                 android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
                 android:value="@string/menu_key_benzo_settings"/>
         </activity>
+
+        <!-- Quick Settings -->
+        <activity
+            android:name="Settings$QuickSettingsActivity"
+            android:label="@string/benzo_extras_quicksettings_title"
+            android:taskAffinity="com.android.settings"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzorom.settings.QuickSettings" />
+        </activity>
+
+        <!-- Buttons -->
+        <activity
+            android:name="Settings$ButtonSettingsActivity"
+            android:label="@string/benzo_extras_buttons_title"
+            android:taskAffinity="com.android.settings"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.benzorom.settings.ButtonSettings" />
+        </activity>
     </application>
 </manifest>
