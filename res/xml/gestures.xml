@@ -21,6 +21,12 @@
     android:title="@string/gesture_preference_title">
 
     <Preference
+        android:key="columbus_input_summary"
+        android:title="@string/columbus_title"
+        android:fragment="com.google.android.settings.gestures.columbus.ColumbusSettings"
+        settings:controller="com.google.android.settings.gestures.columbus.ColumbusPreferenceController" />
+
+    <Preference
         android:key="gesture_assist_input_summary"
         android:title="@string/assist_gesture_title"
         android:fragment="com.android.settings.gestures.AssistGestureSettings"
@@ -55,12 +61,6 @@
         settings:keywords="@string/keywords_system_navigation" />
 
     <Preference
-        android:key="gesture_one_handed"
-        android:title="@string/one_handed_title"
-        android:fragment="com.android.settings.gestures.OneHandedSettings"
-        settings:controller="com.android.settings.gestures.OneHandedEnablePreferenceController" />
-
-    <Preference
         android:key="gesture_tap_screen_input_summary"
         android:title="@string/ambient_display_tap_screen_title"
         android:fragment="com.android.settings.gestures.TapScreenGestureSettings"
@@ -80,6 +80,12 @@
         android:fragment="com.android.settings.gestures.PickupGestureSettings"
         settings:searchable="false"
         settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
+
+    <Preference
+        android:key="gesture_one_handed_mode"
+        android:title="@string/one_handed_title"
+        android:fragment="com.android.settings.gestures.OneHandedSettings"
+        settings:controller="com.android.settings.gestures.OneHandedEnablePreferenceController" />
 
     <Preference
         android:key="gesture_power_menu_summary"
