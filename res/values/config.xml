@@ -42,13 +42,19 @@
     <bool name="config_show_camera_laser_sensor">false</bool>
 
     <!-- Fully-qualified class name for the implementation of the FeatureFactory to be instantiated. -->
-    <string name="config_featureFactory" translatable="false">com.android.settings.overlay.FeatureFactoryImpl</string>
+    <string name="config_featureFactory" translatable="false">
+        com.google.android.settings.overlay.FeatureFactoryImpl
+    </string>
 
     <!-- Package name and fully-qualified class name for the wallpaper picker activity. -->
-    <string name="config_wallpaper_picker_package" translatable="false">com.android.settings</string>
-    <string name="config_wallpaper_picker_class" translatable="false">com.android.settings.Settings$WallpaperSettingsActivity</string>
+    <string name="config_wallpaper_picker_package" translatable="false">com.google.android.apps.wallpaper</string>
+    <string name="config_wallpaper_picker_class" translatable="false">
+        com.google.android.apps.wallpaper.picker.CategoryPickerActivity
+    </string>
     <!-- Fully-qualified class name for the styles & wallpaper picker activity. -->
-    <string name="config_styles_and_wallpaper_picker_class" translatable="false"></string>
+    <string name="config_styles_and_wallpaper_picker_class" translatable="false">
+        com.android.customization.picker.CustomizationPickerActivity
+    </string>
     <!-- Intent extra for wallpaper picker activity. -->
     <string name="config_wallpaper_picker_launch_extra" translatable="false">com.android.wallpaper.LAUNCH_SOURCE</string>
 
@@ -59,8 +65,8 @@
     <string name="config_backup_settings_label" translatable="true"></string>
 
     <!-- Double twist sensor type and vendor used by gesture setting -->
-    <string name="gesture_double_twist_sensor_type" translatable="false"></string>
-    <string name="gesture_double_twist_sensor_vendor" translatable="false"></string>
+    <string name="gesture_double_twist_sensor_type" translatable="false">com.google.sensor.double_twist</string>
+    <string name="gesture_double_twist_sensor_vendor" translatable="false">Google</string>
 
     <!-- When true enable gesture setting. -->
     <bool name="config_gesture_settings_enabled">false</bool>
@@ -182,7 +188,7 @@
     <bool name="config_display_recent_apps">true</bool>
 
     <!-- Package name for the storage manager to use from Settings search. -->
-    <string name="config_deletion_helper_package" translatable="false">com.android.storagemanager</string>
+    <string name="config_deletion_helper_package" translatable="false">com.google.android.storagemanager</string>
     <!-- Class name for the storage manager's deletion helper class. -->
     <string name="config_deletion_helper_class" translatable="false">com.android.storagemanager.deletionhelper.DeletionHelperActivity</string>
 
@@ -229,7 +235,7 @@
 
     <!-- Settings intelligence package name -->
     <string name="config_settingsintelligence_package_name" translatable="false">
-        com.android.settings.intelligence
+        com.google.android.settings.intelligence
     </string>
 
     <!-- Whether the confirmation for sim deletion is defaulted to be on or off-->
@@ -241,7 +247,9 @@
     </string>
 
     <!-- Settings intelligence interaction log intent action -->
-    <string name="config_settingsintelligence_log_action" translatable="false"></string>
+    <string name="config_settingsintelligence_log_action" translatable="false">
+        com.google.android.settings.intelligence.LOG_BRIDGE
+    </string>
 
     <!-- AOSP Emergency app package name -->
     <string name="config_aosp_emergency_package_name" translatable="false">
@@ -255,12 +263,12 @@
 
     <!-- Emergency app package name -->
     <string name="config_emergency_package_name" translatable="false">
-        com.android.emergency
+        com.google.android.apps.safetyhub
     </string>
 
     <!-- Emergency app intent action -->
     <string name="config_emergency_intent_action" translatable="false">
-        android.settings.EDIT_EMERGENCY_INFO
+        com.google.android.safetyhub.SAFETY_HUB
     </string>
 
     <!-- Email address for the homepage contextual cards feedback -->
@@ -276,7 +284,9 @@
     <bool name="config_face_education_use_lottie">false</bool>
 
     <!-- App intent -->
-    <string name="config_account_intent_uri" translatable="false"></string>
+    <string name="config_account_intent_uri" translatable="false">
+        intent:#Intent;action=com.android.settings.action.VIEW_ACCOUNT;category=android.intent.category.DEFAULT;launchFlags=0x8000;S.extra.callingPackageName=com.android.settings;end
+    </string>
 
     <!-- Whether or not the dock settings are to be displayed for this device when docked -->
     <bool name="has_dock_settings">false</bool>
@@ -475,13 +485,17 @@
     </string-array>
 
     <!-- Uri to query non-public Slice Uris. -->
-    <string name="config_non_public_slice_query_uri" translatable="false"></string>
+    <string name="config_non_public_slice_query_uri" translatable="false">
+        content://com.android.settings.slices/settings_internal_slices
+    </string>
 
     <!-- RTT setting intent action -->
-    <string name="config_rtt_setting_intent_action" translatable="false"></string>
+    <string name="config_rtt_setting_intent_action" translatable="false">
+        com.android.dialer.rtt.settings.impl.gateway.ACTION_OPEN_RTT_SETTINGS
+    </string>
 
     <!-- Package name of dialer supports RTT setting-->
-    <string name="config_rtt_setting_package_name" translatable="false"></string>
+    <string name="config_rtt_setting_package_name" translatable="false">com.google.android.dialer</string>
 
     <!-- Whether nfc detection point preview image is available or not. -->
     <bool name="config_nfc_detection_point">false</bool>
@@ -493,13 +507,15 @@
     <bool name="config_show_emergency_gesture_settings">true</bool>
 
     <!-- Optional package name if another 1p app wants to take over the emergency gesture settings UI -->
-    <string name="emergency_gesture_settings_package"></string>
+    <string name="emergency_gesture_settings_package">com.google.android.apps.safetyhub</string>
 
     <!-- Whether to show the Preference for Adaptive connectivity -->
     <bool name="config_show_adaptive_connectivity">false</bool>
 
     <!-- Authority of advanced device battery prediction -->
-    <string name="config_battery_prediction_authority" translatable="false"></string>
+    <string name="config_battery_prediction_authority" translatable="false">
+        com.google.android.apps.turbo.bluetooth.estimated_time_remaining
+    </string>
 
     <!-- Whether to handle slot change events -->
     <bool name="config_handle_sim_slot_change">false</bool>
