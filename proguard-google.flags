@@ -1,0 +1,11 @@
+# Google Settings
+-keep class com.android.wsuinterface.** { *; }
+-keep class com.google.** { *; }
+-keep class vendor.** { *; }
+
+# Reflection
+-keepattributes InnerClasses
+-keep class **.R
+-keep class **.R$* {
+    <fields>;
+}

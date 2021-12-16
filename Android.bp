@@ -35,6 +35,12 @@ java_library {
     ],
 }
 
+java_import {
+    name: "libSettingsGoogle",
+    sdk_version: "current",
+    jars: ["libs/libSettingsGoogle.jar"],
+}
+
 // Build the Settings APK
 android_library {
     name: "Settings-core",
@@ -51,6 +57,7 @@ android_library {
 
     resource_dirs: [
         "res",
+        "res-google",
         "BenzoSettings/res",
     ],
 
@@ -82,9 +89,13 @@ android_library {
         "android.hardware.dumpstate-V1.1-java",
         "lottie",
         "windowExtLib",
+        "libSettingsGoogle",
     ],
     manifest: "AndroidManifest.xml",
-    additional_manifests: ["BenzoManifest.xml"],
+    additional_manifests: [
+        "BenzoManifest.xml",
+        "SettingsGoogleManifest.xml",
+    ],
 
     aaptflags: ["--extra-packages com.benzo.settings"],
 
@@ -123,6 +134,7 @@ android_app {
         proguard_flags_files: [
             "proguard.flags",
             "proguard-benzo.flags",
+            "proguard-google.flags",
         ],
     },
 }

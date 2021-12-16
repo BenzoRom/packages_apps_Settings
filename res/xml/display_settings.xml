@@ -35,7 +35,9 @@
             android:key="auto_brightness_entry"
             android:title="@string/auto_brightness_title"
             android:fragment="com.android.settings.display.AutoBrightnessSettings"
-            settings:controller="com.android.settings.display.AutoBrightnessPreferenceController"/>
+            settings:controller="com.android.settings.display.AutoBrightnessPreferenceController"
+            settings:userRestriction="no_config_brightness"
+            settings:useAdminDisabledSummary="true"/>
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -103,11 +105,12 @@
     <PreferenceCategory
         android:title="@string/category_name_display_controls">
 
-        <SwitchPreference
+        <com.android.settings.widget.PrimarySwitchPreference
             android:key="auto_rotate"
             android:title="@string/accelerometer_title"
             settings:keywords="@string/keywords_auto_rotate"
-            settings:controller="com.android.settings.display.AutoRotatePreferenceController"/>
+            android:fragment="com.android.settings.display.SmartAutoRotatePreferenceFragment"
+            settings:controller="com.android.settings.display.SmartAutoRotatePreferenceController"/>
 
         <SwitchPreference
             android:key="display_white_balance"
@@ -128,6 +131,13 @@
             android:summary="@string/force_high_refresh_rate_desc"
             android:disableDependentsState="true"
             settings:controller="com.android.settings.display.ForcePeakRefreshRatePreferenceController"/>
+
+        <SwitchPreference
+            android:key="touch_sensitivity"
+            android:title="@string/touch_sensitivity_title"
+            android:summary="@string/touch_sensitivity_summary"
+            settings:controller="com.google.android.settings.touch.TouchSensitivityPreferenceController"
+            settings:keywords="@string/keywords_touch_sensitivity"/>
 
         <SwitchPreference
             android:key="show_operator_name"
