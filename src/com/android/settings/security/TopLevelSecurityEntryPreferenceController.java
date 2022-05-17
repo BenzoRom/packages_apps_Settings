@@ -24,6 +24,7 @@ import androidx.preference.Preference;
 import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.overlay.FeatureFactory;
+import com.google.android.settings.security.SecurityHubDashboard;
 
 public class TopLevelSecurityEntryPreferenceController extends BasePreferenceController {
 
@@ -46,17 +47,13 @@ public class TopLevelSecurityEntryPreferenceController extends BasePreferenceCon
             return super.handlePreferenceTreeClick(preference);
         }
 
-        if (mSecuritySettingsFeatureProvider.hasAlternativeSecuritySettingsFragment()) {
-            String alternativeFragmentClassname =
-                    mSecuritySettingsFeatureProvider
-                            .getAlternativeSecuritySettingsFragmentClassname();
-            if (alternativeFragmentClassname != null) {
-                new SubSettingLauncher(mContext)
-                        .setDestination(alternativeFragmentClassname)
-                        .setSourceMetricsCategory(getMetricsCategory())
-                        .launch();
-                return true;
-            }
+        String alternativeFragmentClassname = SecurityHubDashboard.class.getName();
+        if (alternativeFragmentClassname != null) {
+            new SubSettingLauncher(mContext)
+                    .setDestination(alternativeFragmentClassname)
+                    .setSourceMetricsCategory(getMetricsCategory())
+                    .launch();
+            return true;
         }
 
         return super.handlePreferenceTreeClick(preference);

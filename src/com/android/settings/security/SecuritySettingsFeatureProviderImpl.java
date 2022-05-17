@@ -16,16 +16,18 @@
 
 package com.android.settings.security;
 
+import com.google.android.settings.security.SecurityHubDashboard;
+
 /** Implementation for {@code SecuritySettingsFeatureProvider}. */
 public class SecuritySettingsFeatureProviderImpl implements SecuritySettingsFeatureProvider {
 
     @Override
     public boolean hasAlternativeSecuritySettingsFragment() {
-        return false;
+        return true;
     }
 
     @Override
     public String getAlternativeSecuritySettingsFragmentClassname() {
-        return null;
+        return SecurityHubDashboard.class.getName();
     }
 }
