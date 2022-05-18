@@ -35,12 +35,6 @@ java_library {
     ],
 }
 
-java_import {
-    name: "libSettingsGoogle",
-    sdk_version: "current",
-    jars: ["libs/libSettingsGoogle.jar"],
-}
-
 // Build the Settings APK
 android_library {
     name: "Settings-core",
