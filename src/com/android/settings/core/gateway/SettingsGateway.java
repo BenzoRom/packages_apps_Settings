@@ -96,6 +96,7 @@ import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.fuelgauge.batterysaver.BatterySaverScheduleSettings;
 import com.android.settings.fuelgauge.batterysaver.BatterySaverSettings;
 import com.android.settings.gestures.AssistGestureSettings;
+import com.android.settings.gestures.ButtonNavigationSettingsFragment;
 import com.android.settings.gestures.DoubleTapPowerSettings;
 import com.android.settings.gestures.DoubleTapScreenSettings;
 import com.android.settings.gestures.DoubleTwistGestureSettings;
@@ -336,7 +337,8 @@ public class SettingsGateway {
             QuickSettings.class.getName(),
             GlobalActionsSettings.class.getName(),
             VolumeStepsFragment.class.getName(),
-            StatusbarSettings.class.getName()
+            StatusbarSettings.class.getName(),
+            ButtonNavigationSettingsFragment.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -383,5 +385,6 @@ public class SettingsGateway {
             Settings.GlobalActionsSettingsActivity.class.getName(),
             Settings.VolumeStepsFragmentActivity.class.getName(),
             Settings.StatusbarSettingsActivity.class.getName(),
+            Settings.ButtonNavigationSettingsActivity.class.getName(),
     };
 }

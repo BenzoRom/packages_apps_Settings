@@ -334,4 +334,7 @@ public class Settings extends SettingsActivity {
     public static class GlobalActionsSettingsActivity extends SettingsActivity {}
     public static class VolumeStepsFragmentActivity extends SettingsActivity {}
     public static class StatusbarSettingsActivity extends SettingsActivity {}
+
+    /** Activity for 2/3 Button navigation settings. */
+    public static class ButtonNavigationSettingsActivity extends SettingsActivity {}
 }

@@ -62,4 +62,11 @@
     <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
     <string name="keywords_proximity_wake">accidental, proximity, wake, wake-up</string>
 
+    <!-- Long press home for Assistant -->
+    <string name="button_navigation_settings_activity_title">Navigation Settings</string>
+    <string name="assistant_long_press_category_title">Assistant</string>
+    <string name="assist_long_press_home_title">Long press home for Assistant</string>
+    <string name="assist_long_press_home_summary">Show animation and launch Assistant when long pressing home button</string>
+    <string name="keywords_button_navigation_settings">button navigation, long press, assistant animation</string>
+
 </resources>
