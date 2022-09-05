@@ -98,6 +98,8 @@ android_library {
         "WifiTrackerLib",
         "SettingsLibActivityEmbedding",
         "Settings-change-ids",
+        "android.frameworks.stats-V1-java",
+        "google-fuelgauge",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["BenzoManifest.xml"],
@@ -136,6 +138,18 @@ android_app {
             "proguard-benzo.flags",
         ],
     },
+}
+
+android_library_import {
+    name: "google-fuelgauge",
+    aars: ["libs/google-fuelgauge.aar"],
+    sdk_version: "33",
+    static_libs: [
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.appcompat_appcompat",
+        "androidx.preference_preference",
+        "lottie",
+    ]
 }
 
 android_library_import {
