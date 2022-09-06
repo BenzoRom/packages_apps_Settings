@@ -184,6 +184,8 @@ import com.benzorom.settings.ButtonSettings;
 import com.benzorom.settings.GlobalActionsSettings;
 import com.benzorom.settings.QuickSettings;
 
+import com.google.android.settings.security.SecurityHubDashboard;
+
 public class SettingsGateway {
 
     /**
@@ -354,7 +356,8 @@ public class SettingsGateway {
             BenzoSettings.class.getName(),
             ButtonSettings.class.getName(),
             QuickSettings.class.getName(),
-            GlobalActionsSettings.class.getName()
+            GlobalActionsSettings.class.getName(),
+            SecurityHubDashboard.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {

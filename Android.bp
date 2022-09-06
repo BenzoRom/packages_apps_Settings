@@ -100,6 +100,7 @@ android_library {
         "Settings-change-ids",
         "android.frameworks.stats-V1-java",
         "google-fuelgauge",
+        "google-securityhub",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["BenzoManifest.xml"],
@@ -149,6 +150,17 @@ android_library_import {
         "androidx.appcompat_appcompat",
         "androidx.preference_preference",
         "lottie",
+    ]
+}
+
+android_library_import {
+    name: "google-securityhub",
+    aars: ["libs/google-securityhub.aar"],
+    sdk_version: "33",
+    static_libs: [
+        "androidx.preference_preference",
+        "com.google.android.material_material",
+        "guava",
     ]
 }
 
