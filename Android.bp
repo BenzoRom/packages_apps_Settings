@@ -145,7 +145,10 @@ android_library_import {
 
 filegroup {
     name: "Settings_proguard_flags",
-    srcs: ["proguard.flags"],
+    srcs: [
+        "proguard.flags",
+        "proguard-benzo.flags",
+    ],
 }
 
 // The sources for Settings need to be exposed to SettingsGoogle, etc.
@@ -153,10 +156,17 @@ filegroup {
 // over all the sources together.
 filegroup {
     name: "Settings_srcs",
-    srcs: ["src/**/*.java", "src/**/*.kt"],
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+        "BenzoSettings/src/**/*.java",
+    ],
 }
 
 filegroup {
     name: "Settings_manifest",
-    srcs: ["AndroidManifest.xml"],
+    srcs: [
+        "AndroidManifest.xml",
+        "BenzoManifest.xml",
+    ],
 }
