@@ -45,4 +45,9 @@
     <string name="unlock_scramble_pin_layout_title">Scramble numbers</string>
     <string name="unlock_scramble_pin_layout_summary">Scramble PIN layout when unlocking device</string>
 
+    <!-- Gesture handle hide -->
+    <string name="gesture_handle_category_title">Gesture handle</string>
+    <string name="gesture_handle_hide_title">Hide gesture handle</string>
+    <string name="gesture_handle_hide_summary">Hide the grey handle at the bottom of the screen</string>
+
 </resources>
