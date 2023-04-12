@@ -98,6 +98,7 @@ android_library {
         "WifiTrackerLib",
         "SettingsLibActivityEmbedding",
         "Settings-change-ids",
+        "SystemUIUnfoldLib",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["BenzoManifest.xml"],
